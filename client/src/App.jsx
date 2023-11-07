@@ -1,4 +1,3 @@
-import './App.css';
 import {
   ApolloClient,
   InMemoryCache,
@@ -7,6 +6,8 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { Outlet } from 'react-router-dom';
+import { ChakraProvider, ColorModeScript, extendTheme, Container } from '@chakra-ui/react'
+import { mode } from '@chakra-ui/theme-tools'
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -35,16 +36,44 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// adding global styles
+const styles = {
+  global:(props) => ({
+    body: {
+      color:mode('gray.900', 'whiteAlpha.900')(props),
+      bg:mode('gray:200', '#000000')(props)
+    }
+  })
+}
+
+// setting default color scheme to dark
+const config = {
+  initialColorMode: 'dark',
+  useSystemColorMode: true
+}
+
+// adding colors in theme
+const colors = {
+  gray: '#4c4c4c',
+  darkPurple: '643672',
+  neonBlue: '5371ff',
+  lightPurple: 'cb6c36',
+  darkBlue: '293483'
+}
+
+const theme = extendTheme({ config, styles, colors })
+
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
-        <div className="container">
-          <Outlet />
-        </div>
-        <Footer />
-      </div>
+        <ChakraProvider theme={theme}>
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+            <Header />
+            
+              <Outlet />
+
+            <Footer />
+        </ChakraProvider>
     </ApolloProvider>
   );
 }

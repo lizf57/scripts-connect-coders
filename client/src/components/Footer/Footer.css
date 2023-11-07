@@ -15,3 +15,9 @@ footer {
     flex: 1; 
     margin: 0 10px; 
 }
+
+.footer-copyright {
+    flex: 1; 
+    margin: 10px 10px; 
+    color: #293483;
+}

@@ -1,3 +1,4 @@
+import './style.css'
 import {
   ApolloClient,
   InMemoryCache,
@@ -55,10 +56,10 @@ const config = {
 // adding colors in theme
 const colors = {
   gray: '#4c4c4c',
-  darkPurple: '643672',
-  neonBlue: '5371ff',
-  lightPurple: 'cb6c36',
-  darkBlue: '293483'
+  darkPurple: '#643672',
+  neonBlue: '#5371ff',
+  lightPurple: '#cb6c36',
+  darkBlue: '#293483'
 }
 
 const theme = extendTheme({ config, styles, colors })

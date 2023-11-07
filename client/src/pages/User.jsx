@@ -1,7 +1,9 @@
+import UserInfo from '../components/UserInfo'
+
 const User = () => {
     return (
         <>
-            User 
+            <UserInfo /> 
         </>
     )
 }

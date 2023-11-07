@@ -1,23 +1,46 @@
-# Decode and Read JSON Web Token (Client-side)
+# Scripts: connecting coders
 
-In this demo, you demonstrate how a token is stored client-side after successfully logging into the application.
+## Description
+Scripts is a social media platform tailored to the needs of software developers and coders. This platform facilitates connections among web developers by enabling users to craft and share posts, consequently fostering a network of followers and connections. The application is powered by the MERN stack and hosted on Heroku. 
 
-## Instructions
+  ## Table of Contents
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Badges](#badges)
+  * [Contributions](#contributions)
+  * [Questions](#questions)
 
-* Run `npm install` and `npm run seed` to set up the database.
 
-* Open the client-side [package.json](client/package.json) and explain that while we can't sign or verify a token in the client, we can check what information it holds and when it expires with the `jwt-decode` library.
+## [Installation](#Table-of-Contents)
+1. Clone this repo to your local computer by clicking the link to my [Github](https://github.com/lizf57/scripts-connect-coders) then clicking the green drop down button that says "Code".
+2. Install dependencies by typing `npm install` in the terminal's command line.
 
-* Open [auth.js](client/src/utils/auth.js) and explain the `AuthService` class:
 
-  * When we log into the site, we need to store our access token somewhere so we can retrieve and include it with any request to our server. This suite of functionality helps us achieve that goal.
+## [Usage](#table-of-contents)
+1. To deploy this application, open the command line in the root of the project and type `npm run seed` then `cd client` then `npm run dev`. 
 
-* Open [App.js](client/src/App.js) and explain the contents:
 
-  * We now import the `setContext()` function from Apollo Client and implement it to retrieve the token and include it in the `headers` of any request to our server.
+## [License](#table-of-contents)
+[ MIT License ](https://opensource.org/licenses/MIT)
 
-  * We don't have anything server-side yet that will verify this token, but we'll focus on that later.
 
-* Open [Login.js](client/src/pages/Login.js) and explain the page's functionality:
+## [Badges](#table-of-contents)
+[![License: MIT](https://img.shields.io/badge/MIT_License-purple)](https://opensource.org/licenses/MIT)
+[![React](https://img.shields.io/badge/React-blue)](https://react.dev/)
+[![Typewriter Effect](https://img.shields.io/badge/Typewriter%20Effect-magenta)](https://www.npmjs.com/package/typewriter-effect)
+[![Font Awesome](https://img.shields.io/badge/Font%20Awesome-lightblue)](https://fontawesome.com/)
+[![Chakra UI](https://img.shields.io/badge/Chakra%20UI-teal)](https://chakra-ui.com/)
 
-  * When we fill out and submit this form to login, we execute the `login` mutation and receive a token in return, which we immediately store using our `AuthService` class functionality.
+
+## [Contributions](#table-of-contents)
+There were no other contributors to this application. This application was initiated as a project from the University of Wisconsin Coding Bootcamp. 
+
+## [Questions](#Table-of-Contents)
+If you have any questions contact developers here:
+
+N. Stark: [Github](https://github.com/nstark12)
+<br> 
+T. Jansson: [Github](https://github.com/tjansson-ui)
+<br>
+L. Friedman: [Github](https://github.com/lizf57)

@@ -1,0 +1,52 @@
+[
+    {"commentID": "1234abcd",
+    "commentBody": "This is a comment",
+    "username": "user1",
+    "createdAt": "Brian-Kernighan"
+    },
+    {"commentID": "1234abcde",
+    "commentBody": "This is a comment2",
+    "username": "user1",
+    "createdAt": "Max-Kanat-Alexander"
+    },
+    {"commentID": "1234abcdf",
+    "commentBody": "This is a comment3",
+    "username": "user1",
+    "createdAt": "Amiko"
+    },
+    {"commentID": "1234abcdg",
+    "commentBody": "This is a comment4",
+    "username": "user1",
+    "createdAt": "Kent-Beck"
+    },
+    {"commentID": "1234abcdh",
+    "commentBody": "This is a comment5",
+    "username": "user1",
+    "createdAt": "Edward-V"
+    },
+    {"commentID": "1234abcdi",
+    "commentBody": "This is a comment6",
+    "username": "user1",
+    "createdAt": "Alan-Kay"
+    },
+    {"commentID": "1234abcdj",
+    "commentBody": "This is a comment7",
+    "username": "user1",
+    "createdAt": "C.A.R"
+    },
+    {"commentID": "1234abcdk",
+    "commentBody": "This is a comment8",
+    "username": "user1",
+    "createdAt": "David-Thomas"
+    },
+    {"commentID": "1234abcdl",
+    "commentBody": "This is a comment9",
+    "username": "user1",
+    "createdAt": "Donald-Knuth"
+    },
+    {"commentID": "1234abcdm",
+    "commentBody": "This is a comment10",
+    "username": "user1",
+    "createdAt": "Lernantino"
+    }
+]

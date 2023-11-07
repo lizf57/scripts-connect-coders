@@ -3,76 +3,90 @@
     "name": "Brian Kernighan",
     "email": "bkernighan@techfriends.dev",
     "password": "password01",
-    "skills": ["AWK", "AMPL", "Unix"]
+    "biography": "I started my own ice cream company at 7 years old.",
+    "github": "github.com/user1",
+    "stackOverflow": "stackOverflow.com/user1",
+    "linkedIn": "linkedin.com/user1"
   },
   {
     "name": "Max Kanat-Alexander",
     "email": "mkanatalexander@techfriends.dev",
     "password": "password02",
-    "skills": ["Java", "Perl", "Apache", "Python"]
+    "biography": "I started my own company at 2 years old.",
+    "github": "github.com/user2",
+    "stackOverflow": "stackOverflow.com/user2",
+    "linkedIn": "linkedin.com/user2"
   },
   {
     "name": "Amiko",
     "email": "amiko@techfriends.dev",
     "password": "password03",
-    "skills": ["NodeJS", "MySQL", "MongoDB", "React", "CSS-in-JS"]
+    "biography": "I started my own business at 3 years old.",
+    "github": "github.com/user3",
+    "stackOverflow": "stackOverflow.com/user3",
+    "linkedIn": "linkedin.com/user3"
   },
   {
     "name": "Kent Beck",
     "email": "kbeck@techfriends.dev",
     "password": "password04",
-    "skills": [
-      "Test-Driven Development",
-      "Extreme Programming",
-      "Software Design Patterns",
-      "JUnit"
-    ]
+    "biography": "I started my own restaurant at 4 years old.",
+    "github": "github.com/user4",
+    "stackOverflow": "stackOverflow.com/user4",
+    "linkedIn": "linkedin.com/user4"
   },
   {
     "name": "Edward V. Berard",
     "email": "evberard@techfriends.dev",
     "password": "password05",
-    "skills": ["Object-Oriented Design"]
+    "biography": "I started my own ice cream company at 5 years old.",
+    "github": "github.com/user5",
+    "stackOverflow": "stackOverflow.com/user5",
+    "linkedIn": "linkedin.com/user5"
   },
   {
     "name": "Alan Kay",
     "email": "akay@techfriends.dev",
     "password": "password06",
-    "skills": [
-      "Graphical User Interface (GUI) Design",
-      "Jazz Guitar",
-      "Education"
-    ]
+    "biography": "I started eating at 6 years old.",
+    "github": "github.com/user6",
+    "stackOverflow": "stackOverflow.com/user6",
+    "linkedIn": "linkedin.com/user6"
   },
   {
     "name": "C.A.R. Hoare",
     "email": "choare@techfriends.dev",
     "password": "password07",
-    "skills": ["Algorithms", "Quicksort", "Hoare Logic"]
+    "biography": "I started dancing at 7 years old.",
+    "github": "github.com/user7",
+    "stackOverflow": "stackOverflow.com/user7",
+    "linkedIn": "linkedin.com/user7"
   },
   {
     "name": "David Thomas",
     "email": "dthomas@techfriends.dev",
     "password": "password08",
-    "skills": ["Author", "Code Kata", "Ruby", "Pragmatic Programming"]
+    "biography": "I started my own company at 8 years old.",
+    "github": "github.com/user8",
+    "stackOverflow": "stackOverflow.com/user8",
+    "linkedIn": "linkedin.com/user8"
   },
   {
     "name": "Donald Knuth",
     "email": "dknuth@techfriends.dev",
     "password": "password09",
-    "skills": ["TeX Computer Typesetting", "Algorithms", "Author"]
+    "biography": "I'm not 9 years old.",
+    "github": "github.com/user9",
+    "stackOverflow": "stackOverflow.com/user9",
+    "linkedIn": "linkedin.com/user9"
   },
   {
     "name": "Lernantino",
     "email": "lernantino@techfriends.dev",
     "password": "password10",
-    "skills": [
-      "JavaScript",
-      "CSS",
-      "HTML",
-      "Design Systems",
-      "Typescript",
-      "PWAs"
-    ]
+    "biography": "I beat a world record at 10 years old.",
+    "github": "github.com/user10",
+    "stackOverflow": "stackOverflow.com/user10",
+    "linkedIn": "linkedin.com/user10"
   }
 ]

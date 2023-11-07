@@ -1,0 +1,38 @@
+const { Schema, model } = require('mongoose')
+const commentSchema = require('./Comment')
+
+const postSchema = new Schema({
+    body: {
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 255
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (date) => {
+            if (date) return date.toISOString().split("T")[0]
+        }
+    },
+    comments: [commentSchema]
+}, {
+    toJSON: {
+        virtuals: true,
+        getters: true
+    },
+    id: false,
+    timestamps: true
+})
+
+postSchema.virtual('commentCount').get(function() {
+    return this.comments.length
+})
+
+const Post = model('Post', postSchema)
+
+module.exports = Post

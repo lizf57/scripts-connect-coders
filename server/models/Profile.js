@@ -19,12 +19,35 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  skills: [
-    {
+  biography: {
       type: String,
       trim: true,
-    },
+  },
+  github: {
+    type: String,
+    trim: true,
+  },
+  stackOverflow: {
+    type: String,
+    trim: true,
+  },
+  linkedIn: {
+    type: String,
+    trim: true,
+  },
+  posts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Post'
+    }
   ],
+}, {
+  toJSON: {
+    virtuals: true,
+    getters: true,
+  },
+  id: false,
+  timestamps: true
 });
 
 // set up pre-save middleware to create password

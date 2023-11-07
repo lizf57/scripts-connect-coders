@@ -1,40 +1,34 @@
-import { Link } from 'react-router-dom';
+import { Flex, Image, useColorMode } from '@chakra-ui/react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 
 import Auth from '../../utils/auth';
 
 const Header = () => {
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
+  // const logout = (event) => {
+  //   event.preventDefault();
+  //   Auth.logout();
+  // };
+
+  const { colorMode, toggleColorMode } = useColorMode()
+
   return (
-    <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
-      <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
-        <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize: '3rem' }}>
-            Tech Friends
-          </h1>
-        </Link>
-        <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-          Meet your new programming pals.
-        </p>
-        <div>
-          {Auth.loggedIn() ? (
-            <button className="btn btn-lg btn-light m-2" onClick={logout}>
-              Logout
-            </button>
-          ) : (
-            <>
-              <Link className="btn btn-lg btn-primary m-2" to="/login">
-                Login
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
-                Signup
-              </Link>
-            </>
-          )}
-        </div>
-      </div>
+    <header>
+        <Flex justifyContent={'center'} mt={1} mb={0}>
+          <Image 
+            cursor='pointer'
+            boxSize='150px'
+            objectFit={'cover'}
+            alt='scripts logo'
+            src='/scripts.png'
+          />
+        </Flex>
+        <Flex justifyContent={'center'} mt={-10} mb={11}>
+
+          {colorMode === 'dark' ? <FontAwesomeIcon icon={faSun} style={{color: '#cb6ce6'}} size={'lg'} cursor={'pointer'} onClick={toggleColorMode}/> : <FontAwesomeIcon icon={faMoon} style={{color: '#cb6ce6'}} size={'lg'} cursor={'pointer'} onClick={toggleColorMode}/>}
+
+          
+        </Flex>
     </header>
   );
 };

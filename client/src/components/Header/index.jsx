@@ -5,10 +5,10 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import Auth from '../../utils/auth';
 
 const Header = () => {
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
+  // const logout = (event) => {
+  //   event.preventDefault();
+  //   Auth.logout();
+  // };
 
   const { colorMode, toggleColorMode } = useColorMode()
 

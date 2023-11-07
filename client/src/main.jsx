@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from './App.jsx';
-import Home from './pages/Home';
+import Home from './components/Home';
 import User from './pages/User.jsx'
 import Post from './pages/Post.jsx'
 import Signup from './pages/Signup';

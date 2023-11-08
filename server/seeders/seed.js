@@ -1,8 +1,8 @@
 const db = require('../config/connection');
 const { Profile } = require('../models');
 const profileSeeds = require('./profileSeeds.json');
-const commentSeeds = require('./commentSeeds.json')
-const postSeeds = require('./postSeeds.json')
+// const commentSeeds = require('./commentSeeds.json')
+// const postSeeds = require('./postSeeds.json')
 const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {

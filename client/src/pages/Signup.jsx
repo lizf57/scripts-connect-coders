@@ -55,31 +55,45 @@ const Signup = () => {
           Sign Up
         </Text>
 
-        <FormControl isRequired mb={7}>
-          <FormLabel>Name</FormLabel>
-          <Input placeholder='name' borderColor={'neonBlue'} focusBorderColor={'lightPurple'}  />
-        </FormControl>
+        {data ? (
+          <p>Success!</p>
+        ) : (
+          <form onSubmit={handleFormSubmit}>
+            <FormControl isRequired mb={7}>
+              <FormLabel>Name</FormLabel>
+              <Input placeholder='name' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='name' type='text' value={formState.name} onChange={handleChange} />
+            </FormControl>
 
-        <FormControl isRequired mb={7}>
-          <FormLabel>Username</FormLabel>
-          <Input placeholder='email' borderColor={'neonBlue'} focusBorderColor={'lightPurple'}  />
-        </FormControl>
+            <FormControl isRequired mb={7}>
+              <FormLabel>Username</FormLabel>
+              <Input placeholder='email' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='username' type='text' value={formState.username} onChange={handleChange} />
+            </FormControl>
 
-        <FormControl isRequired mb={7}>
-          <FormLabel>Email</FormLabel>
-          <Input placeholder='email' borderColor={'neonBlue'} focusBorderColor={'lightPurple'}  />
-        </FormControl>
+            <FormControl isRequired mb={7}>
+              <FormLabel>Email</FormLabel>
+              <Input placeholder='email' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='email' type='email' value={formState.email} onChange={handleChange} />
+            </FormControl>
 
-        <FormControl isRequired>
-          <FormLabel>Password</FormLabel>
-          <Input placeholder='password' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} />
-        </FormControl>
+            <FormControl isRequired>
+              <FormLabel>Password</FormLabel>
+              <Input placeholder='password' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='password' type='password' value={formState.password} onChange={handleChange} />
+            </FormControl>
 
-        <Stack direction='row' spacing={4} mt={7}>
-          <Button bg={'neonBlue'} variant='solid'>
-            Sign Up
-          </Button>
-        </Stack>
+            <Stack direction='row' spacing={4} mt={7}>
+              <Button bg={'neonBlue'} variant='solid' type='submit'>
+                Sign Up
+              </Button>
+            </Stack>
+
+          </form>
+
+        )}
+
+        {error && (
+          <div>{console.log(error)}</div>
+        )}
+
+
 
       </Flex>
 

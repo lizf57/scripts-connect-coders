@@ -1,10 +1,47 @@
 import Typewriter from "typewriter-effect"
 import { useState } from "react"
 import { Flex, Input, Link, Text, Button, Stack, FormControl, FormLabel, FormErrorMessage, FormHelperText } from '@chakra-ui/react'
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../../utils/mutations';
+
+import Auth from '../../utils/auth'
 
 
-function Home() {
 
+const Home = (props) => {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
+
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: '',
+      password: '',
+    });
+  };
   
 
   return (
@@ -53,26 +90,43 @@ function Home() {
                 Login
               </Text>
 
-              <FormControl isRequired mb={7}>
-                <FormLabel>Email</FormLabel>
-                <Input placeholder='email' borderColor={'neonBlue'} focusBorderColor={'lightPurple'}  />
-              </FormControl>
+              {data ? (
+                <p>Success!</p>
+              ) : (
+                <form onSubmit={handleFormSubmit}>
 
-              <FormControl isRequired>
-                <FormLabel>Password</FormLabel>
-                <Input placeholder='password' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} />
-              </FormControl>
+                <FormControl isRequired mb={7}>
+                  <FormLabel>Email</FormLabel>
+                  <Input placeholder='email' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='email' type='email' value={formState.email} onChange={handleChange} />
+                </FormControl>
 
-              <Stack direction='row' spacing={4} mt={7}>
-                <Button bg={'neonBlue'} variant='solid'>
-                  Login
-                </Button>
-                <Link href='/signup'>
-                  <Button colorScheme='purple' borderColor={'lightPurple'} variant='outline'>
-                    Sign Up
+                <FormControl isRequired>
+                  <FormLabel>Password</FormLabel>
+                  <Input placeholder='password' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='password' type='password' value={formState.password} onChange={handleChange} />
+                </FormControl>
+
+                <Stack direction='row' spacing={4} mt={7}>
+                  <Button bg={'neonBlue'} variant='solid' type='submit'>
+                    Login
                   </Button>
-                </Link>
-              </Stack>
+                  <Link href='/signup'>
+                    <Button colorScheme='purple' borderColor={'lightPurple'} variant='outline'>
+                      Sign Up
+                    </Button>
+                  </Link>
+                  
+                </Stack>
+
+                </form>
+
+              )}
+
+              {error && (
+                <div>{console.log(error)}</div>
+              )}
+
+
+             
 
             </Flex>
 

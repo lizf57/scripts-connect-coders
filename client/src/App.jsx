@@ -42,7 +42,7 @@ const styles = {
   global:(props) => ({
     body: {
       color:mode('gray.900', 'whiteAlpha.900')(props),
-      bg:mode('gray:200', '#000000')(props)
+      bg:mode('gray.200', '#000000')(props)
     }
   })
 }
@@ -58,7 +58,7 @@ const colors = {
   gray: '#4c4c4c',
   darkPurple: '#643672',
   neonBlue: '#5371ff',
-  lightPurple: '#cb6c36',
+  lightPurple: '#cb6ce6',
   darkBlue: '#293483'
 }
 

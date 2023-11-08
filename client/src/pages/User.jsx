@@ -1,4 +1,5 @@
 import UserInfo from '../components/UserInfo'
+import { Container } from '@chakra-ui/react'
 
 const User = () => {
     return (

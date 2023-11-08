@@ -1,4 +1,4 @@
-import { Stack, Text, Heading, Card, CardBody, Container, } from '@chakra-ui/react'
+import { Stack, Text, Heading, Card, CardBody, Container } from '@chakra-ui/react'
 
 const developers = [
     {

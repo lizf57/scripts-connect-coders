@@ -1,4 +1,4 @@
-import { Stack, Text, Heading, Card, CardBody, Container, } from '@chakra-ui/react'
+import { Stack, Text, Heading, Card, CardBody, Container } from '@chakra-ui/react'
 
 const lists = [
     {
@@ -10,14 +10,12 @@ const lists = [
         description: "create an account with scripts and start networking with web developers.",
     },
     {
-        // TODO: STRIPE PAYMENT - SET UP LINK
         title: "give back",
-        description: "link for stripe",
+        link: "https://stripe.com/",
     },
     {
-        // TODO: Set up link to career page
         title: "become part of the team",
-        description: "link to career page",
+        link: "/Careers",
     }
 ]
 
@@ -27,6 +25,7 @@ const About = () => {
         <> 
       
         <Container maxW='700px' mb={40}>
+    
             
         {lists.map(list => {
             return (
@@ -41,9 +40,12 @@ const About = () => {
 
                 <CardBody>
 
-                <Heading size='xl' style={{color: '#cb6ce6'}} >{list.title}</Heading>
+                <Heading size='xl' style={{color: '#cb6ce6'}} >
+                    {list.link ? <a href={list.link} target='_blank' > {list.title} </a> : list.title}
+                </Heading>
 
                 <Text size='md' style={{color: '#5371FF'}}>{list.description}</Text>
+    
 
                 </CardBody>
 

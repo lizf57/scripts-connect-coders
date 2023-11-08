@@ -8,7 +8,7 @@ function Home() {
     <>
     <div className='home-container'>
       <div className='container'>
-          <img src="/images/script.png" className="logo-image" alt="logo-photo"/>
+          {/* <img src="/images/script.png" className="logo-image" alt="logo-photo"/> */}
       <div>
         <div className="typing">
 

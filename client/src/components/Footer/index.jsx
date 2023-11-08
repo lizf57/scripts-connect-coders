@@ -1,6 +1,10 @@
 import './footer.css' 
+import { useColorMode } from '@chakra-ui/react'
 
 const Footer = () => {
+
+   const { colorMode, toggleColorMode } = useColorMode()
+
     return (
       <>
          <footer>

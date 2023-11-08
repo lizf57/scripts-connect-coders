@@ -22,7 +22,6 @@ function Home() {
           fontSize={'40px'}
           color={'lightPurple'}
         >
-            {/* <img src="/images/script.png" className="logo-image" alt="logo-photo"/> */}
               <Typewriter
                   options={{
                     loop: true,

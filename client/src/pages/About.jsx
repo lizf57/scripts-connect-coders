@@ -7,6 +7,7 @@ const lists = [
     },
     {
         title: "connect with coders",
+        link: "/Signup",
         description: "create an account with scripts and start networking with web developers.",
     },
     {

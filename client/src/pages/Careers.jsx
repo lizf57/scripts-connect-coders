@@ -10,7 +10,7 @@ const Careers = () => {
 
         <Heading size='xl' style={{color: '#cb6ce6'}}>Careers</Heading>
 
-        <Text size='md' style={{color: '#5371FF'}}> No current job openings available at this time. </Text>
+        <Text size='md' style={{color: '#5371FF'}}> No job openings available at this time. </Text>
        
         </Container>
         </>

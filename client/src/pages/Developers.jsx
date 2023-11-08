@@ -3,15 +3,15 @@ import { Stack, Text, Heading, Card, CardBody, Container } from '@chakra-ui/reac
 const developers = [
     {
         name: "Tor Jansson",
-        github: "",
+        github: "https://github.com/tjansson-ui",
     },
     {
         name: "Nicole Stark",
-        github: "",
+        github: "https://github.com/nstark12",
     },
     {
         name: "Liz Friedman",
-        github: "",
+        github: "https://github.com/lizf57",
     },
     
 ]
@@ -35,9 +35,10 @@ const Developers = () => {
 
                 <CardBody>
 
-                <Heading size='xl' style={{color: '#cb6ce6'}} >{developer.name}</Heading>
+                <Heading size='xl' style={{color: '#cb6ce6'}} >
+                    <a href={developer.github} target='_blank'>{developer.name}</a>
+                </Heading>
 
-                <Text size='md' style={{color: '#5371FF'}}>{developer.github}</Text>
 
                 </CardBody>
 

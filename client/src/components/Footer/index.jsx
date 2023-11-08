@@ -11,9 +11,9 @@ const Footer = () => {
          <Stack w={'full'} bg={'neonBlue'} pt={10}>
 
             <Flex justifyContent={'space-around'} w={'full'} >
-               <Link mx={10} fontSize={'lg'} >about</Link>
-               <Link mx={10} fontSize={'lg'} >developers</Link>
-               <Link mx={10} fontSize={'lg'} >careers</Link>
+               <Link mx={10} fontSize={'lg'} href='/about'>about</Link>
+               <Link mx={10} fontSize={'lg'} href='/developers'>developers</Link>
+               <Link mx={10} fontSize={'lg'} href='/careers'>careers</Link>
             </Flex>
 
             <Flex justifyContent={'center'} w={'full'}>

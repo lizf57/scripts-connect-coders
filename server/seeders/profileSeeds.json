@@ -1,6 +1,7 @@
 [
   {
-    "username": "Brian-Kernighan",
+    "name": "Brian Kernighan",
+    "username": "user1",
     "email": "bkernighan@techfriends.dev",
     "password": "password01",
     "biography": "I started my own ice cream company at 7 years old.",
@@ -9,7 +10,8 @@
     "linkedIn": "linkedin.com/user1"
   },
   {
-    "username": "Max-Kanat-Alexander",
+    "name": "Max Kanat Alexander",
+    "username": "user2",
     "email": "mkanatalexander@techfriends.dev",
     "password": "password02",
     "biography": "I started my own company at 2 years old.",
@@ -18,7 +20,8 @@
     "linkedIn": "linkedin.com/user2"
   },
   {
-    "username": "Amiko",
+    "name": "Amiko",
+    "username": "user3",
     "email": "amiko@techfriends.dev",
     "password": "password03",
     "biography": "I started my own business at 3 years old.",
@@ -27,7 +30,8 @@
     "linkedIn": "linkedin.com/user3"
   },
   {
-    "username": "Kent-Beck",
+    "name": "Kent Beck",
+    "username": "user4",
     "email": "kbeck@techfriends.dev",
     "password": "password04",
     "biography": "I started my own restaurant at 4 years old.",
@@ -36,7 +40,8 @@
     "linkedIn": "linkedin.com/user4"
   },
   {
-    "username": "Edward-V-Berard",
+    "name": "Edward Berard",
+    "username": "user5",
     "email": "evberard@techfriends.dev",
     "password": "password05",
     "biography": "I started my own ice cream company at 5 years old.",
@@ -45,7 +50,8 @@
     "linkedIn": "linkedin.com/user5"
   },
   {
-    "username": "Alan-Kay",
+    "name": "Alan Kay",
+    "username": "user6",
     "email": "akay@techfriends.dev",
     "password": "password06",
     "biography": "I started eating at 6 years old.",
@@ -54,7 +60,8 @@
     "linkedIn": "linkedin.com/user6"
   },
   {
-    "username": "C.A.R.-Hoare",
+    "name": "C.A.R. Hoare",
+    "username": "user7",
     "email": "choare@techfriends.dev",
     "password": "password07",
     "biography": "I started dancing at 7 years old.",
@@ -63,7 +70,8 @@
     "linkedIn": "linkedin.com/user7"
   },
   {
-    "username": "David-Thomas",
+    "name": "David Thomas",
+    "username": "user8",
     "email": "dthomas@techfriends.dev",
     "password": "password08",
     "biography": "I started my own company at 8 years old.",
@@ -72,7 +80,8 @@
     "linkedIn": "linkedin.com/user8"
   },
   {
-    "username": "Donald-Knuth",
+    "name": "Donald Knuth",
+    "username": "user9",
     "email": "dknuth@techfriends.dev",
     "password": "password09",
     "biography": "I'm not 9 years old.",
@@ -81,7 +90,8 @@
     "linkedIn": "linkedin.com/user9"
   },
   {
-    "username": "Lernantino",
+    "name": "Lernantino",
+    "username": "user10",
     "email": "lernantino@techfriends.dev",
     "password": "password10",
     "biography": "I beat a world record at 10 years old.",

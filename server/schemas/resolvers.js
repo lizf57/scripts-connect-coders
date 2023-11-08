@@ -13,8 +13,8 @@ const resolvers = {
   },
 
   Mutation: {
-    addProfile: async (parent, { name, email, password }) => {
-      const profile = await Profile.create({ name, email, password });
+    addProfile: async (parent, { name, email, username, password }) => {
+      const profile = await Profile.create({ name, email, username, password });
       const token = signToken(profile);
 
       return { token, profile };
@@ -36,28 +36,29 @@ const resolvers = {
       return { token, profile };
     },
 
-    addSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        {
-          $addToSet: { skills: skill },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    },
+    // addSkill: async (parent, { profileId, skill }) => {
+    //   return Profile.findOneAndUpdate(
+    //     { _id: profileId },
+    //     {
+    //       $addToSet: { skills: skill },
+    //     },
+    //     {
+    //       new: true,
+    //       runValidators: true,
+    //     }
+    //   );
+    // },
+
     removeProfile: async (parent, { profileId }) => {
       return Profile.findOneAndDelete({ _id: profileId });
     },
-    removeSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        { $pull: { skills: skill } },
-        { new: true }
-      );
-    },
+    // removeSkill: async (parent, { profileId, skill }) => {
+    //   return Profile.findOneAndUpdate(
+    //     { _id: profileId },
+    //     { $pull: { skills: skill } },
+    //     { new: true }
+    //   );
+    // },
   },
 };
 

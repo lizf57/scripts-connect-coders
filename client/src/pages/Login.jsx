@@ -1,6 +1,6 @@
 import Typewriter from "typewriter-effect"
 import { useState } from "react"
-import { Flex, Input, Link, Text, Button, Stack, FormControl, FormLabel, FormErrorMessage, FormHelperText } from '@chakra-ui/react'
+import { Flex, Input, Link, Text, Button, Stack, FormControl, FormLabel, Alert, AlertIcon, AlertTitle } from '@chakra-ui/react'
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
@@ -9,6 +9,7 @@ import Auth from '../utils/auth'
 
 
 const Login = (props) => {
+
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
@@ -123,7 +124,11 @@ const Login = (props) => {
               )}
 
               {error && (
-                <div>{console.log(error)}</div>
+                <Alert variant='solid' bg={'lightPurple'} mt={8}>
+                  <AlertIcon />
+                  <AlertTitle>Error logging in!</AlertTitle>
+                
+                </Alert>
               )}
 
 

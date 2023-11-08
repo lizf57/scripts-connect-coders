@@ -1,4 +1,5 @@
-import './footer.css' 
+// import './footer.css' 
+import { Flex, Text, Link, Stack } from '@chakra-ui/react'
 import { useColorMode } from '@chakra-ui/react'
 
 const Footer = () => {
@@ -7,18 +8,20 @@ const Footer = () => {
 
     return (
       <>
-         <footer>
-            <div className='footer-container'>
-                    <div className='footer-text'>about</div>
-                    <div className='footer-text'>developers</div>
-                    <div className='footer-text'>careers</div>
-            </div>
-            <div>
-            <div className='footer-copyright'>&copy; 2023 scripts. All rights reserved.</div>
+         <Stack w={'full'} bg={'neonBlue'} pt={10}>
 
-            </div>
+            <Flex justifyContent={'space-around'} w={'full'} >
+               <Link mx={10} fontSize={'lg'} >about</Link>
+               <Link mx={10} fontSize={'lg'} >developers</Link>
+               <Link mx={10} fontSize={'lg'} >careers</Link>
+            </Flex>
 
-         </footer>
+            <Flex justifyContent={'center'} w={'full'}>
+               <Text my={7}>&copy; 2023 scripts. All rights reserved.</Text>
+            </Flex>
+           
+
+         </Stack>
       </>
     )
  }

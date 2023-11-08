@@ -4,7 +4,7 @@ import { Container } from '@chakra-ui/react'
 const User = () => {
     return (
         <>
-        <Container maxW='700px'>
+        <Container maxW='700px' mb={40}>
                 
                 
             <UserInfo /> 

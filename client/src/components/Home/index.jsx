@@ -13,7 +13,11 @@ function Home() {
         <div className="typing">
 
             <Typewriter
- 
+                
+                options={{
+                  loop: true,
+                }}
+
                 onInit={(typewriter) => {
                     typewriter
                         .typeString("connecting coders")
@@ -22,6 +26,8 @@ function Home() {
                         .typeString("one script at a time")
                         .start();
                 }}
+
+
             />
         </div>
       </div>

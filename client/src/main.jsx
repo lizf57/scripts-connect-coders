@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from './App.jsx';
-import Home from './components/Home';
+import Home from './pages/Home.jsx';
 import User from './pages/User.jsx'
 import Post from './pages/Post.jsx'
 import Signup from './pages/Signup';
@@ -11,6 +11,7 @@ import ErrorPage from './pages/Error';
 import About from './pages/About.jsx'
 import Developers from './pages/Developers.jsx'
 import Careers from './pages/Careers.jsx'
+import PrivateRoute from './components/PrivateRoute/index.jsx';
 
 
 const router = createBrowserRouter([
@@ -21,7 +22,9 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <PrivateRoute>
+            <Home />
+          </PrivateRoute>
       }, {
         path: '/login',
         element: <Login />

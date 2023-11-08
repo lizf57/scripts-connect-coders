@@ -1,7 +1,11 @@
 const Post = () => {
     return (
         <>
-            Post 
+            <Container maxW='700px'>
+                
+               Post
+
+            </Container> 
         </>
     )
 }

@@ -69,13 +69,13 @@ function App() {
     <ApolloProvider client={client}>
         <ChakraProvider theme={theme}>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-            <Container maxW='700px'>
-              <Header />
+            <Header />
               
-                <Outlet />
+                
+                  <Outlet />
 
-              <Footer />
-            </Container>
+              
+            <Footer />
         </ChakraProvider>
     </ApolloProvider>
   );

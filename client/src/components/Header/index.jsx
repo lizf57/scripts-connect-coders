@@ -1,4 +1,4 @@
-import { Flex, Image, useColorMode } from '@chakra-ui/react'
+import { Flex, Image, Link, useColorMode } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 
@@ -15,13 +15,15 @@ const Header = () => {
   return (
     <header>
         <Flex justifyContent={'center'} mt={1} mb={0}>
-          <Image 
+          <Link href="/">
+            <Image 
             cursor='pointer'
             boxSize='150px'
             objectFit={'cover'}
             alt='scripts logo'
             src='/scripts.png'
-          />
+            />
+          </Link>
         </Flex>
         <Flex justifyContent={'center'} mt={-10} mb={11}>
 

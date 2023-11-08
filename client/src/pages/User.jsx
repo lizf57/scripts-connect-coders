@@ -6,7 +6,6 @@ const User = () => {
         <>
         <Container maxW='700px' mb={40}>
                 
-                
             <UserInfo /> 
 
         </Container>

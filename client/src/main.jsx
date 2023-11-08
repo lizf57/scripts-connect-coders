@@ -8,6 +8,10 @@ import Post from './pages/Post.jsx'
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ErrorPage from './pages/Error';
+import About from './pages/About.jsx'
+import Developers from './pages/Developers.jsx'
+import Careers from './pages/Careers.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -32,6 +36,18 @@ const router = createBrowserRouter([
       {
         path: '/:username/post/:postId',
         element: <Post />
+      },
+      {
+        path: '/about',
+        element: <About />
+      },
+      {
+        path: '/developers',
+        element: <Developers />
+      },
+      {
+        path: '/careers',
+        element: <Careers />
       }
     ]
   },

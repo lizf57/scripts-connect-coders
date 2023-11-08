@@ -23,7 +23,8 @@ function Home() {
                         .typeString("connecting coders")
                         .pauseFor(1000)
                         .deleteAll()
-                        .typeString("one script at a time")
+                        .typeString("one script at a time.")
+                        .pauseFor(1000)
                         .start();
                 }}
 

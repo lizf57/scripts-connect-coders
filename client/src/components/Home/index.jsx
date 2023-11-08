@@ -1,8 +1,7 @@
 import Typewriter from "typewriter-effect"
 import { useState } from "react"
-import { Flex, Input, Text, Button, Stack, FormControl, FormLabel, FormErrorMessage, FormHelperText } from '@chakra-ui/react'
+import { Flex, Input, Link, Text, Button, Stack, FormControl, FormLabel, FormErrorMessage, FormHelperText } from '@chakra-ui/react'
 
-import './Home.css'
 
 function Home() {
 
@@ -69,9 +68,11 @@ function Home() {
                 <Button bg={'neonBlue'} variant='solid'>
                   Login
                 </Button>
-                <Button colorScheme='purple' borderColor={'lightPurple'} variant='outline'>
-                  Sign Up
-                </Button>
+                <Link href='/signup'>
+                  <Button colorScheme='purple' borderColor={'lightPurple'} variant='outline'>
+                    Sign Up
+                  </Button>
+                </Link>
               </Stack>
 
             </Flex>

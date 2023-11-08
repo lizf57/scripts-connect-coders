@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Flex, Input, Link, Text, Button, Stack, FormControl, FormLabel, FormErrorMessage, FormHelperText } from '@chakra-ui/react'
+import { Flex, Input, Text, Button, Stack, FormControl, FormLabel, Alert, AlertIcon, AlertTitle } from '@chakra-ui/react'
 
 import { useMutation } from '@apollo/client';
 import { ADD_PROFILE } from '../utils/mutations';
@@ -90,7 +90,11 @@ const Signup = () => {
         )}
 
         {error && (
-          <div>{console.log(error)}</div>
+           <Alert variant='solid' bg={'lightPurple'} mt={8}>
+           <AlertIcon />
+           <AlertTitle>Error signing up!</AlertTitle>
+         
+         </Alert>
         )}
 
 

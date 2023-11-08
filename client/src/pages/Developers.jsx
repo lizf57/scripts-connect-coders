@@ -1,5 +1,7 @@
 import { Stack, Text, Heading, Card, CardBody, Container } from '@chakra-ui/react'
 
+import '../style.css'
+
 const developers = [
     {
         name: "Tor Jansson",
@@ -36,7 +38,7 @@ const Developers = () => {
                 <CardBody>
 
                 <Heading size='xl' style={{color: '#cb6ce6'}} >
-                    <a href={developer.github} target='_blank'>{developer.name}</a>
+                    <a href={developer.github} target='_blank' className='title-links'>{developer.name}</a>
                 </Heading>
 
 

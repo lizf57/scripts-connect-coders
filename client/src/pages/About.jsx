@@ -1,5 +1,7 @@
 import { Stack, Text, Heading, Card, CardBody, Container } from '@chakra-ui/react'
 
+import '../style.css'
+
 const lists = [
     {
         title: "our purpose",
@@ -41,8 +43,8 @@ const About = () => {
 
                 <CardBody>
 
-                <Heading size='xl' style={{color: '#cb6ce6'}} >
-                    {list.link ? <a href={list.link} target='_blank' > {list.title} </a> : list.title}
+                <Heading  size='xl' style={{color: '#cb6ce6'}} >
+                    {list.link ? <a href={list.link} target='_blank' className='title-links'> {list.title} </a> : list.title}
                 </Heading>
 
                 <Text size='md' style={{color: '#5371FF'}}>{list.description}</Text>

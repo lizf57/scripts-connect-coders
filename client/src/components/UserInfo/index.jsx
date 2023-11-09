@@ -59,8 +59,15 @@ const UserInfo = () => {
                         <FontAwesomeIcon icon={faLinkedin} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
                         </Box>
                     </Link>
-                    
-                
+            </Flex>
+
+            <Flex w={'full'} mt={7}>
+                <Flex flex={1} borderBottom={'1.5px solid white'} justifyContent={'center'} pb={3} cursor={'pointer'}>
+                    <Text fontWeight={'bold'}>&lt;scripts &#47;&gt;</Text>
+                </Flex>
+                <Flex flex={1} borderBottom={'1.px solid gray'} justifyContent={'center'} pb={3} cursor={'pointer'} color={'gray'}>
+                    <Text fontWeight={'bold'}>comments</Text>
+                </Flex>
             </Flex>
 
        </VStack>

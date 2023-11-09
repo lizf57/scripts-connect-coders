@@ -11,11 +11,17 @@ export const QUERY_PROFILES = gql`
 `;
 
 export const QUERY_SINGLE_PROFILE = gql`
-  query singleProfile($profileId: ID!) {
+  query Profile($profileId: ID!) {
     profile(profileId: $profileId) {
       _id
       name
-      skills
+      username
+      biography
+      email
+      github
+      linkedIn
+      stackOverflow
     }
   }
+  
 `;

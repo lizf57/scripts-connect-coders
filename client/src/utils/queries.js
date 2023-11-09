@@ -5,7 +5,8 @@ export const QUERY_PROFILES = gql`
     profiles {
       _id
       name
-      skills
+      username
+      biography
     }
   }
 `;

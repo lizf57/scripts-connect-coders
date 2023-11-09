@@ -13,9 +13,7 @@ const Header = () => {
 
   const { loading, data } = useQuery(QUERY_SINGLE_PROFILE)
 
-  console.log(data)
-
-  const profileId = data?.profileId || []
+  const profileId = data?.profile || []
 
   const { colorMode, toggleColorMode } = useColorMode()
 
@@ -25,13 +23,13 @@ const Header = () => {
         <Flex justify={'end'}>
           {Auth.loggedIn() ? (
             <div>
-            <Link href={`/profiles/${profileId.name}`}>
-              <Button m={4} bg={'lightPurple'} mb={-19}>
+            <Link href={`/profiles/${profileId._id}`}>
+              <Button m={4} bg={'lightPurple'} mb={-10}>
                 My Profile
               </Button>
             </Link>
 
-            <Button m={4} ml={0} bg={'neonBlue'} mb={-19} onClick={logout}>
+            <Button m={4} ml={0} bg={'neonBlue'} mb={-10} onClick={logout}>
               Logout
             </Button>
             </div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Container, Text, Card, CardHeader, CardBody, CardFooter,  Heading, Button } from '@chakra-ui/react'
 
 const ProfileList = ({ profiles, title }) => {
   if (!profiles.length) {
@@ -6,33 +7,39 @@ const ProfileList = ({ profiles, title }) => {
   }
 
   return (
-    <div>
-      <h3 className="text-primary">{title}</h3>
-      <div className="flex-row justify-space-between my-4">
+      <Container maxW={'700px'} mb={40}>
+
         {profiles &&
           profiles.map((profile) => (
-            <div key={profile._id} className="col-12 col-xl-6">
-              <div className="card mb-3">
-                <h4 className="card-header bg-dark text-light p-2 m-0">
-                  {profile.name} <br />
-                  <span className="text-white" style={{ fontSize: '1rem' }}>
-                    currently has {profile.skills ? profile.skills.length : 0}{' '}
-                    endorsed skill
-                    {profile.skills && profile.skills.length === 1 ? '' : 's'}
-                  </span>
-                </h4>
-
-                <Link
-                  className="btn btn-block btn-squared btn-light text-dark"
-                  to={`/profiles/${profile._id}`}
-                >
-                  View and endorse their skills.
-                </Link>
-              </div>
+            
+            <div key={profile._id}>
+              <Link to={`/profiles/${profile._id}`}></Link>
+                <Card align='center' border={'2px solid white'} mt={10} borderRadius={20}>
+                  <CardHeader mb={-8}>
+                    <Heading size='md'>
+                      <Link to={`/profiles/${profile._id}`}>
+                        <h4>
+                          {profile.name} - <span>{profile.username}</span>
+                        </h4>
+                      </Link>
+                    </Heading>
+                  </CardHeader>
+                  <CardBody mb={-5}>
+                    <Text>{profile.biography}</Text>
+                  </CardBody>
+                  <CardFooter>
+                  <Link to={`/profiles/${profile._id}`}>
+                    <Button bg='lightPurple'>View Profile</Button>  
+                  </Link>
+                  </CardFooter>
+                </Card>      
             </div>
+
           ))}
-      </div>
-    </div>
+
+      </Container>
+     
+    
   );
 };
 

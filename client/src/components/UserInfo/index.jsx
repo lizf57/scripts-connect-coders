@@ -28,8 +28,9 @@ const UserInfo = () => {
             <Flex justifyContent={'space-between'} w={'full'}>
                 <Box>
                     <Text color={'neonBlue'} fontWeight={'bold'} fontSize={'30px'}>{profile.name}</Text>
-                    <Text fontSize={'sm'}>{profile.username}</Text>
-                    <Text fontSize={'15px'} mt={3}>{profile.biography}</Text>
+                    <Link color={'lightPurple'} fontSize={'sm'} href='/editProfile'>Edit Profile</Link>
+                    <Text fontSize={'md'}>{profile.username}</Text>
+                    <Text fontSize={'md'} mt={3}>{profile.biography}</Text>
                 </Box>
                 <Box>
                     <Avatar 
@@ -38,6 +39,7 @@ const UserInfo = () => {
                         size={'xl'}
                     />
                 </Box>
+                
             </Flex>
 
             {/* Links display */}

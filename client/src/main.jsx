@@ -11,6 +11,7 @@ import ErrorPage from './pages/Error';
 import About from './pages/About.jsx'
 import Developers from './pages/Developers.jsx'
 import Careers from './pages/Careers.jsx'
+import EditProfile from './pages/editProfile.jsx';
 import PrivateRoute from './components/PrivateRoute/index.jsx';
 
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: '/:profileId/post/:postId',
         element: <Post />
+      },
+      {
+        path: '/editProfile',
+        element: <EditProfile />,
       },
       {
         path: '/about',

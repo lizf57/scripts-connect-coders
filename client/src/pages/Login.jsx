@@ -32,7 +32,7 @@ const Login = (props) => {
         variables: { ...formState },
       });
       
-      Auth.login(data.login.token);
+      Auth.login(data.login.token, data.login.profile._id);
       console.log(token)
     } catch (e) {
       console.error(e);

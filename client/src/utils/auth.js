@@ -19,14 +19,16 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
-  login(idToken) {
+  login(idToken, profileId) {
     // Saves user token to localStorage and reloads the application for logged in status to take effect
+    localStorage.setItem('profile_id', profileId);
     localStorage.setItem('id_token', idToken);
     window.location.assign('/');
   }
 
   logout() {
     // Clear user token and profile data from localStorage
+    localStorage.removeItem('profile_id')
     localStorage.removeItem('id_token');
     // this will reload the page and reset the state of the application
     window.location.reload();

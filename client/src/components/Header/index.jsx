@@ -2,7 +2,6 @@ import { useQuery } from '@apollo/client'
 import { Flex, Image, Link, useColorMode, Button } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
-import { QUERY_SINGLE_PROFILE } from '../../utils/queries'
 
 import Auth from '../../utils/auth';
 const Header = () => {
@@ -11,10 +10,8 @@ const Header = () => {
     Auth.logout();
   };
 
-  const { loading, data } = useQuery(QUERY_SINGLE_PROFILE)
-
-  const profileId = data?.profile || []
-
+  const profileId = localStorage.getItem('profile_id')
+  
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
@@ -23,7 +20,7 @@ const Header = () => {
         <Flex justify={'end'}>
           {Auth.loggedIn() ? (
             <div>
-            <Link href={`/profiles/${profileId._id}`}>
+            <Link href={`/profiles/${profileId}`}>
               <Button m={4} bg={'lightPurple'} mb={-10}>
                 My Profile
               </Button>

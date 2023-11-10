@@ -1,12 +1,23 @@
-// TODO postseeds
 [
     {
-        "body": "I love my job."
+        "body": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic.",
+        "username": "user9"
     },
     {
-        "body": "I love code."
+        "body": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic.",
+        "username": "user10"
     },
     {
-        "body": "who hacked me..."
+        "body": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic.",
+        "username": "user8"
+    },
+    {
+        "body": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic.",
+        "username": "user6"
+    },
+    {
+        "body": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic.",
+        "username": "user7"
     }
+
 ]

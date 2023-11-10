@@ -49,7 +49,7 @@ const Header = () => {
 
         <Flex justifyContent={'center'} mt={-10} mb={11}>
 
-          {colorMode === 'dark' ? <FontAwesomeIcon icon={faSun} style={{color: '#cb6ce6'}} size={'lg'} cursor={'pointer'} onClick={toggleColorMode}/> : <FontAwesomeIcon icon={faMoon} style={{color: '#cb6ce6'}} size={'lg'} cursor={'pointer'} onClick={toggleColorMode}/>}
+          {colorMode === 'dark' ? <FontAwesomeIcon icon={faSun} style={{color: '#cb6ce6'}} size={'xl'} cursor={'pointer'} onClick={toggleColorMode}/> : <FontAwesomeIcon icon={faMoon} style={{color: '#cb6ce6'}} size={'xl'} cursor={'pointer'} onClick={toggleColorMode}/>}
 
           
         </Flex>

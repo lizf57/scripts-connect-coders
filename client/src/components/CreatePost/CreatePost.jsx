@@ -21,7 +21,7 @@ const CreatePost = () => {
     const handleTextChange = (e) => {
       const inputEntry = e.target.value
 
-      if(inputEntry.length > charLimit) {
+      if(inputEntry.length >= charLimit) {
         setPostText(inputEntry.slice(0,charLimit))
         setRemainingChar(0)
         charMessage = "Character limit reached"
@@ -50,7 +50,11 @@ const CreatePost = () => {
     </Button>
 
     <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
+        <ModalOverlay 
+          bg={useColorModeValue("gray.900","gray.200")}
+          backdropFilter='auto'
+          backdropBlur='1px'
+        />
         <ModalContent>
           <ModalHeader>Create Post</ModalHeader>
           <ModalCloseButton />

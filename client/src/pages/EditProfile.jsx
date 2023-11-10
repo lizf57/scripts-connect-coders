@@ -1,9 +1,12 @@
 import React from 'react'
-import { FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem, Stack, Button } from '@chakra-ui/react'
+import { Link, FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem, Stack, Button } from '@chakra-ui/react'
 
 import '../style.css'
 
 const EditProfile = () => {
+
+    const profileId = localStorage.getItem('profile_id')
+
   return (
     <>
     <Flex
@@ -99,9 +102,13 @@ const EditProfile = () => {
               <Button bg={'neonBlue'} variant='solid' type='submit'>
                 Save Changes
               </Button>
+
+              <Link href={`/profiles/${profileId}`}>
               <Button bg={'lightPurple'} variant='solid' type='submit'>
                 Cancel
               </Button>
+              </Link>
+             
             </Stack>
 
             <Stack direction='row' justifyContent={'flex-end'} spacing={4} mt={7}>

@@ -11,6 +11,7 @@ import {
     ModalCloseButton,
   } from '@chakra-ui/react'
 import { useState } from "react"
+import Auth from "../../utils/auth"
 
 const charLimit = 255
 let charMessage = ""
@@ -38,24 +39,29 @@ const CreatePost = () => {
     // TODO: fix bug with character limit
   return (
     <>
-    <Button
-        position={"fixed"}
-        bottom={100}
-        right={10}
-        leftIcon={<FontAwesomeIcon icon={faPlus} />}
-        bg={useColorModeValue("gray.900","gray.200")}
-        onClick={onOpen}
-    >
+    <div>
+    {Auth.loggedIn() ? (
+      <Button
+      position={"fixed"}
+      bottom={100}
+      right={10}
+      leftIcon={<FontAwesomeIcon icon={faPlus} />}
+      bg={useColorModeValue("gray.900","gray.200")}
+      onClick={onOpen}
+      >
         Post
     </Button>
+) : (
+  "")}
 
-    <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+</div>
+<Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay 
           bg={useColorModeValue("gray.900","gray.200")}
           backdropFilter='auto'
           backdropBlur='1px'
-        />
-        <ModalContent>
+          />
+        <ModalContent background={useColorModeValue("white","lightPurple")}>
           <ModalHeader>Create Post</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={4}>
@@ -65,7 +71,7 @@ const CreatePost = () => {
               placeholder="Enter what you want"
               onChange={handleTextChange}
               value={postText}              
-            />
+              />
             
             <Text fontSize={"xs"} textAlign={"right"} fontWeight={"bold"}>
               {charMessage}

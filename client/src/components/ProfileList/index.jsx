@@ -19,7 +19,7 @@ const ProfileList = ({ profiles, title }) => {
                     <Heading size='md'>
                       <Link to={`/profiles/${profile._id}`}>
                         <h4>
-                          {profile.name} - <span>{profile.username}</span>
+                          {profile.name} - <span className='username'>{profile.username}</span>
                         </h4>
                       </Link>
                     </Heading>

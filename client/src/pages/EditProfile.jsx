@@ -23,76 +23,76 @@ const EditProfile = () => {
 
             <FormControl  mb={7}>
                 <FormLabel>Name:</FormLabel>
-                <Input placeholder='name' color={'whiteAlpha.500'} borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='name' type='text'/>
+                <Input placeholder='name' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='name' type='text'/>
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Username:</FormLabel>
-                <Input placeholder='username' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='username' type='text'/>
+                <Input placeholder='username'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='username' type='text'/>
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Email:</FormLabel>
-                <Input placeholder='email' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='email' type='text'/>
+                <Input placeholder='email'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='email' type='text'/>
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Password:</FormLabel>
-                <Input placeholder='password' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='password' type='text'/>
+                <Input placeholder='password'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='password' type='text'/>
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Biography:</FormLabel>
-                <Input placeholder='bio' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='bio' type='text'/>
+                <Input placeholder='bio'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='bio' type='text'/>
             </FormControl>  
 
             <FormControl mb={7}>
                 <FormLabel>Github Account:</FormLabel>
-                <Input placeholder='Github URL' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='github' type='text'/>
+                <Input placeholder='Github URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='github' type='text'/>
             </FormControl> 
 
             <FormControl mb={7}>
                 <FormLabel>StackOverflow Account:</FormLabel>
-                <Input placeholder='StackOverflow URL' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='stackoverflow' type='text'/>
+                <Input placeholder='StackOverflow URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='stackoverflow' type='text'/>
             </FormControl>  
 
             <FormControl mb={7}>
                 <FormLabel>LinkedIn Account:</FormLabel>
-                <Input placeholder='LinkedIn URL' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='linkedin' type='text'/>
+                <Input placeholder='LinkedIn URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='linkedin' type='text'/>
             </FormControl>   
 
             <FormControl  mb={7}>
                 <FormLabel>Choose an Avatar:</FormLabel>
             <Wrap>
                 <WrapItem>
-                    <Avatar className='avatar' name='avatar1' size='lg' src='https://bit.ly/dan-abramov' />
+                    <Avatar className='avatar' name='avatar1' size='lg' alt={'avatar1'} src='https://bit.ly/dan-abramov' />
                 </WrapItem>
                 <WrapItem>
-                    <Avatar className='avatar' name='avatar2' size='lg' src='https://bit.ly/kent-c-dodds' />
+                    <Avatar className='avatar' name='avatar2' size='lg' alt={'avatar2'}  src='https://bit.ly/kent-c-dodds' />
                 </WrapItem>
                 <WrapItem>
-                    <Avatar className='avatar' name='avatar3' size='lg' src='https://bit.ly/ryan-florence' />
+                    <Avatar className='avatar' name='avatar3' size='lg' alt={'avatar3'}  src='https://bit.ly/ryan-florence' />
                 </WrapItem>
                 <WrapItem>
-                    <Avatar className='avatar' name='avatar4' size='lg' src='https://bit.ly/prosper-baba' />
+                    <Avatar className='avatar' name='avatar4' size='lg' alt={'avatar4'}  src='https://bit.ly/prosper-baba' />
                 </WrapItem>
                 <WrapItem>
-                    <Avatar className='avatar' name='avatar5' size='lg' src='https://bit.ly/code-beast' />
+                    <Avatar className='avatar' name='avatar5' size='lg' alt={'avatar5'}  src='https://bit.ly/code-beast' />
                 </WrapItem>
                 <WrapItem>
-                    <Avatar className='avatar' name='avatar6' size='lg' src='https://bit.ly/sage-adebayo' />
+                    <Avatar className='avatar' name='avatar6' size='lg' alt={'avatar6'}  src='https://bit.ly/sage-adebayo' />
                 </WrapItem>
                 <WrapItem>
-                    <Avatar className='avatar' name='avatar7' size='lg' src='/profiles/profile1.jpg' />
+                    <Avatar className='avatar' name='avatar7' size='lg' alt={'avatar7'}  src='/profiles/profile1.jpg' />
                 </WrapItem>
                 <WrapItem>
-                    <Avatar className='avatar' name='avatar8' size='lg' src='/profiles/profile2.jpg' />
+                    <Avatar className='avatar' name='avatar8' size='lg' alt={'avatar8'}  src='/profiles/profile2.jpg' />
                 </WrapItem>
                 <WrapItem>
-                    <Avatar className='avatar' name='avatar9' size='lg' src='/profiles/profile3.jpg' />
+                    <Avatar className='avatar' name='avatar9' size='lg' alt={'avatar9'}  src='/profiles/profile3.jpg' />
                 </WrapItem>
                 <WrapItem>
-                    <Avatar className='avatar' name='avatar10' size='lg' src='/profiles/profile5.jpg' />
+                    <Avatar className='avatar' name='avatar10' size='lg' alt={'avatar10'}  src='/profiles/profile5.jpg' />
                 </WrapItem>
                 </Wrap>
             </FormControl>

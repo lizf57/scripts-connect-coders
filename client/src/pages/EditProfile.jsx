@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormControl, FormLabel, Input, FormHelperText, Flex, Text, Avatar, AvatarBadge, AvatarGroup, Wrap, WrapItem, Stack, Button } from '@chakra-ui/react'
+import { FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem, Stack, Button } from '@chakra-ui/react'
 
 import '../style.css'
 
@@ -8,6 +8,7 @@ const EditProfile = () => {
     <>
     <Flex
     justifyContent={'center'}
+    color={'white'}
     bg={'darkBlue'}
     w={'auto'}
     h={'auto'}
@@ -19,42 +20,42 @@ const EditProfile = () => {
 
             <FormControl  mb={7}>
                 <FormLabel>Name:</FormLabel>
-                <Input placeholder='name' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='name' type='text'/>
+                <Input placeholder='name' color={'whiteAlpha.500'} borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='name' type='text'/>
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Username:</FormLabel>
-                <Input placeholder='username' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='username' type='text'/>
+                <Input placeholder='username' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='username' type='text'/>
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Email:</FormLabel>
-                <Input placeholder='email' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='email' type='text'/>
+                <Input placeholder='email' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='email' type='text'/>
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Password:</FormLabel>
-                <Input placeholder='password' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='password' type='text'/>
+                <Input placeholder='password' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='password' type='text'/>
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Biography:</FormLabel>
-                <Input placeholder='bio' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='bio' type='text'/>
+                <Input placeholder='bio' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='bio' type='text'/>
             </FormControl>  
 
             <FormControl mb={7}>
                 <FormLabel>Github Account:</FormLabel>
-                <Input placeholder='Github URL' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='github' type='text'/>
+                <Input placeholder='Github URL' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='github' type='text'/>
             </FormControl> 
 
             <FormControl mb={7}>
                 <FormLabel>StackOverflow Account:</FormLabel>
-                <Input placeholder='StackOverflow URL' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='stackoverflow' type='text'/>
+                <Input placeholder='StackOverflow URL' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='stackoverflow' type='text'/>
             </FormControl>  
 
             <FormControl mb={7}>
                 <FormLabel>LinkedIn Account:</FormLabel>
-                <Input placeholder='LinkedIn URL' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='linkedin' type='text'/>
+                <Input placeholder='LinkedIn URL' color={'whiteAlpha.500'}  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='linkedin' type='text'/>
             </FormControl>   
 
             <FormControl  mb={7}>
@@ -109,8 +110,6 @@ const EditProfile = () => {
               </Button>
             </Stack>
             
-
-
     </Flex>
     </Flex>
     </>

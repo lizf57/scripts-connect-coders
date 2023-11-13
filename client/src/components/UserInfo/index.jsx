@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faStackOverflow, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import { QUERY_SINGLE_PROFILE } from '../../utils/queries'
+// import UserPost from '../UserPost/index'
 
 const UserInfo = () => {
 
@@ -21,6 +22,7 @@ const UserInfo = () => {
         return <div>Loading...</div>
     }
 
+    console.log(profile.posts)
     return (
        <VStack>
             {/* Username, name, bio, and picture display */}
@@ -71,6 +73,12 @@ const UserInfo = () => {
                     <Text fontWeight={'bold'}>comments</Text>
                 </Flex>
             </Flex>
+{/* 
+            {profile.posts.map((profile) => (
+                <UserPost key={profile._id} post={profile.post} postedBy={profile.post.username} />
+            ))
+
+            } */}
 
        </VStack>
     )

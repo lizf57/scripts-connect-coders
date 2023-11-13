@@ -2,6 +2,7 @@ const { Profile } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
+// Profile queries 
   Query: {
     profiles: async () => {
       return Profile.find();
@@ -10,9 +11,21 @@ const resolvers = {
     profile: async (parent, { profileId }) => {
       return Profile.findOne({ _id: profileId });
     },
+
+  // Post queries
+  // This does work this way
+  // posts: async () => {
+  //   return Post.find();
+  // },
+
+  // post: async (parent, { profileId }) => {
+  //   return Post.findOne({ _id: postId });
+  // },
+
   },
 
   Mutation: {
+    // Profile Mutations
     addProfile: async (parent, { name, email, username, password }) => {
       const profile = await Profile.create({ name, email, username, password });
       const token = signToken(profile);
@@ -36,29 +49,31 @@ const resolvers = {
       return { token, profile };
     },
 
-    // addSkill: async (parent, { profileId, skill }) => {
-    //   return Profile.findOneAndUpdate(
-    //     { _id: profileId },
-    //     {
-    //       $addToSet: { skills: skill },
-    //     },
-    //     {
-    //       new: true,
-    //       runValidators: true,
-    //     }
-    //   );
-    // },
-
+    
     removeProfile: async (parent, { profileId }) => {
       return Profile.findOneAndDelete({ _id: profileId });
     },
-    // removeSkill: async (parent, { profileId, skill }) => {
-    //   return Profile.findOneAndUpdate(
-    //     { _id: profileId },
-    //     { $pull: { skills: skill } },
-    //     { new: true }
-    //   );
-    // },
+
+    // Post Mutations
+    addPost: async (parent, { profileId , body }) => {
+      return Profile.findOneAndUpdate(
+        { _id: profileId },
+        {
+          $addToSet: { posts: { body } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
+    removePost: async (parent, { profileId, postId }) => {
+      return Profile.findOneAndUpdate(
+        { _id: profileId },
+        { $pull: { posts: { _id: postId } } },
+        { new: true }
+      );
+    },
   },
 };
 

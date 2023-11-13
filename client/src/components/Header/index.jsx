@@ -21,8 +21,14 @@ const Header = () => {
           {Auth.loggedIn() ? (
             <div>
             <Link href={`/profiles/${profileId}`}>
-              <Button m={4} bg={'lightPurple'} mb={-10}>
+              <Button m={4}  bg={'lightPurple'} mb={-10}>
                 My Profile
+              </Button>
+            </Link>
+
+            <Link href={`/codefriends`}>
+              <Button m={4} ml={0} bg={'lightPurple'} mb={-10}>
+                Coding Friends
               </Button>
             </Link>
 

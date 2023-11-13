@@ -7,6 +7,7 @@ export const QUERY_PROFILES = gql`
       name
       username
       biography
+      posts
     }
   }
 `;
@@ -22,6 +23,7 @@ export const QUERY_SINGLE_PROFILE = gql`
       github
       linkedIn
       stackOverflow
+      posts
     }
   }
   

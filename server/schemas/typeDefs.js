@@ -9,7 +9,14 @@ const typeDefs = `
     github: String
     stackOverflow: String
     linkedIn: String
-    
+    posts: [String]!
+  }
+
+  type Post {
+    _id: ID
+    username: String
+    body: String
+    createdAt: String
   }
 
   type Auth {
@@ -26,9 +33,9 @@ const typeDefs = `
     addProfile(name: String!, username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
-    addSkill(profileId: ID!, skill: String!): Profile
+    addPost(profileId: ID!, body: String!): Profile
     removeProfile(profileId: ID!): Profile
-    removeSkill(profileId: ID!, skill: String!): Profile
+    removePost(profileId: ID!, postId: ID!): Profile
   }
 `;
 

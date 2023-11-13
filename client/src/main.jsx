@@ -13,6 +13,7 @@ import Developers from './pages/Developers.jsx'
 import Careers from './pages/Careers.jsx'
 import EditProfile from './pages/editProfile.jsx';
 import PrivateRoute from './components/PrivateRoute/index.jsx';
+import CodeFriends from './pages/CodeFriends.jsx'
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: '/careers',
         element: <Careers />
+      },
+      {
+        path: '/codefriends',
+        element: <CodeFriends />
       }
     ]
   },

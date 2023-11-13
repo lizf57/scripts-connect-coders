@@ -1,20 +1,26 @@
-import Typewriter from "typewriter-effect"
 import { useState } from "react"
 import { Flex, Input, Link, Text, Button, Stack, FormControl, FormLabel, FormErrorMessage, FormHelperText, Box } from '@chakra-ui/react'
 import { useQuery } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
-
-import Auth from '../utils/auth'
-
+import { QUERY_POSTS } from "../utils/queries";
+import AllPosts from "../components/AllPosts";
 
 
-const Home = () => {
+
+const Home = (props) => {
+
+  const { loading, data } = useQuery(QUERY_POSTS)
+  console.log(data)
+  const posts = data?.posts || []
 
   return (
     <>
-      <Box p={4}>
-      <Text textAlign={'center' }>Placeholder</Text>
-      </Box>
+      <div>
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <AllPosts posts={posts} />
+        )}
+      </div>
     </>
   )
 }

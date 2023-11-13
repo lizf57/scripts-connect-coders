@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
-import { Container, Text, Flex, Box, Avatar, Card, CardHeader, CardBody, CardFooter,  Heading, Button } from '@chakra-ui/react'
+import { Container, Text, Flex, Icon, IconButton, Box, Avatar, Card, CardHeader, CardBody, CardFooter,  Heading, Button } from '@chakra-ui/react'
+import { BsThreeDotsVertical } from 'react-icons/bs'
+import { BiLike, BiChat, BiShare } from 'react-icons/bi'
 
 
 const AllPosts = ({ posts }) => {
@@ -14,7 +16,7 @@ const AllPosts = ({ posts }) => {
                 {posts && posts.map((post) => (
                     <div key={post._id}>
                         
-                        <Card maxW='md'>
+                        <Card maxW='md' mb={12}>
                             <CardHeader>
                             <Flex spacing='4'>
                                 <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
@@ -25,12 +27,12 @@ const AllPosts = ({ posts }) => {
                                     <Text>{post.username}</Text>
                                     </Box>
                                 </Flex>
-                                {/* <IconButton
+                                <IconButton
                                     variant='ghost'
                                     colorScheme='gray'
                                     aria-label='See menu'
-                                    // icon={<BsThreeDotsVertical />}
-                                /> */}
+                                    icon={<BsThreeDotsVertical />}
+                                />
                                 </Flex>
                             </CardHeader>
                             <CardBody>
@@ -38,7 +40,25 @@ const AllPosts = ({ posts }) => {
                                 {post.body}
                                 </Text>
                             </CardBody>
-
+                            <CardFooter
+                                justify='space-between'
+                                flexWrap='wrap'
+                                sx={{
+                                '& > button': {
+                                    minW: '136px',
+                                },
+                                }}
+                            >
+                                <Button flex='1' variant='ghost' leftIcon={<BiLike />}>
+                                Like
+                                </Button>
+                                <Button flex='1' variant='ghost' leftIcon={<BiChat />}>
+                                Comment
+                                </Button>
+                                <Button flex='1' variant='ghost' leftIcon={<BiShare />}>
+                                Share
+                                </Button>
+                            </CardFooter>
                         </Card>
 
                     </div>

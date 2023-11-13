@@ -4,7 +4,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 import { BiLike, BiChat, BiShare } from 'react-icons/bi'
 
 
-const AllPosts = ({ posts }) => {
+const AllPosts = ({ posts, profiles }) => {
     if (!posts.length) {
         return <h3>No Posts Yet!</h3>
     }
@@ -26,6 +26,7 @@ const AllPosts = ({ posts }) => {
                                         <Box>
                                         <Heading size='sm'>Segun Adebayo</Heading>
                                         <Text>{post.username}</Text>
+                                        <Text fontSize={'10px'}>{post.createdAt}</Text>
                                         </Box>
                                     </Flex>
                                     <IconButton

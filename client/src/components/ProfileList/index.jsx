@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Container, Text, Card, CardHeader, CardBody, CardFooter,  Heading, Button } from '@chakra-ui/react'
 
-const ProfileList = ({ profiles, title }) => {
+const ProfileList = ({ profiles }) => {
   if (!profiles.length) {
     return <h3>No Profiles Yet</h3>;
   }

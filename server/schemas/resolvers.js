@@ -1,4 +1,4 @@
-const { Profile } = require('../models');
+const { Profile, Post } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -12,11 +12,10 @@ const resolvers = {
       return Profile.findOne({ _id: profileId });
     },
 
-  // Post queries
-  // This doesnt work this way
-  // posts: async () => {
-  //   return Post.find();
-  // },
+    posts: async () => {
+      return Post.find()
+    }
+
 
   // post: async (parent, { postId }) => {
   //   return Post.findOne({ _id: postId });

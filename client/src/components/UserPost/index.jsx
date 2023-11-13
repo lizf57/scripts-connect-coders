@@ -2,7 +2,9 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useQuery } from '@apollo/client'
-const UserPost = ({posts}) => {
+
+ 
+const UserPost = ({ posts }) => {
 // const UserPost = ({post, postedBy}) => {
 //     const [user, setUser] = useState(null);
 //     const navigate = useNavigate();
@@ -26,4 +28,4 @@ const UserPost = ({posts}) => {
     )
 }
 
-export default UserPost
+export default UserPost;

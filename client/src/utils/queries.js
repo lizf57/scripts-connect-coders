@@ -24,7 +24,30 @@ export const QUERY_SINGLE_PROFILE = gql`
       linkedIn
       stackOverflow
       posts
+      avatar
     }
   }
   
 `;
+
+export const QUERY_POSTS = gql`
+  query allPosts {
+    posts {
+      _id
+      body
+      createdAt
+      username
+    }
+  }
+`;
+
+export const QUERY_SINGLE_POST = gql`
+  query Post($postId: ID!) {
+    post(postId: $postId) {
+      _id
+      body
+      createdAt
+      username
+    }
+  }
+`

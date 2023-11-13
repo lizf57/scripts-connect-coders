@@ -13,12 +13,12 @@ const resolvers = {
     },
 
   // Post queries
-  // This does work this way
+  // This doesnt work this way
   // posts: async () => {
   //   return Post.find();
   // },
 
-  // post: async (parent, { profileId }) => {
+  // post: async (parent, { postId }) => {
   //   return Post.findOne({ _id: postId });
   // },
 
@@ -55,18 +55,23 @@ const resolvers = {
     },
 
     // Post Mutations
-    addPost: async (parent, { profileId , body }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        {
-          $addToSet: { posts: { body } },
-        },
-        {
-          new: true,
-          runValidators: true,
+    addPost: async (parent, { profileId , post }, context) => {
+      if (context.user) {
+
+        return Profile.findOneAndUpdate(
+          { _id: profileId },
+          {
+            $addToSet: { posts: post  },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+          );
         }
-      );
+        throw AuthenticationError
     },
+
     removePost: async (parent, { profileId, postId }) => {
       return Profile.findOneAndUpdate(
         { _id: profileId },

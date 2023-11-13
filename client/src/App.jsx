@@ -74,7 +74,7 @@ function App() {
               
                 
                   <Outlet />
-                  <CreatePost/>
+                  <CreatePost />
             <Footer />
         </ChakraProvider>
     </ApolloProvider>

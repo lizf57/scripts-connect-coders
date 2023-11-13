@@ -11,14 +11,21 @@ import {
     ModalCloseButton,
   } from '@chakra-ui/react'
 import { useState } from "react"
+import { useMutation } from "@apollo/client"
+import { ADD_POST } from '../../utils/mutations'
 import Auth from "../../utils/auth"
 
 const charLimit = 255
 let charMessage = ""
+const profileId = localStorage.getItem('profile_id');
+
 const CreatePost = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [postText,setPostText] = useState('')
     const [remainingChar, setRemainingChar] = useState(charLimit)
+
+    const [addPost, { error }] = useMutation(ADD_POST)
+
     const handleTextChange = (e) => {
       const inputEntry = e.target.value
 
@@ -32,8 +39,21 @@ const CreatePost = () => {
         charMessage = remainingChar + " characters remaining"
       }
     }
-    const handleCreatePost = async () => {
-      console.log("not working just yet")
+
+    // TODO This still isn't connecting to graphql
+    const handleCreatePost = async (e) => {
+      e.preventDefault();
+
+      try {
+        const data = await addPost({
+          variables: { profileId, postText },
+        });
+  
+        setPostText('');
+      } catch (err) {
+        console.error(err);
+      }
+      
     }
     // TODO Add Images upload when we figure out cloudinary?
     // TODO: fix bug with character limit

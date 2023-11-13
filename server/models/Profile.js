@@ -46,6 +46,10 @@ const profileSchema = new Schema({
       ref: 'Post'
     }
   ],
+  avatar: {
+    type: String,
+    trim: true,
+  }
 }, {
   toJSON: {
     virtuals: true,

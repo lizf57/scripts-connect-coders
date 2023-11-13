@@ -7,7 +7,8 @@
     "biography": "I started my own ice cream company at 7 years old.",
     "github": "github.com/user1",
     "stackOverflow": "stackOverflow.com/user1",
-    "linkedIn": "linkedin.com/user1"
+    "linkedIn": "linkedin.com/user1",
+    "avatar": "/profiles/profile1.jpg"
   },
   {
     "name": "Max Kanat Alexander",
@@ -17,7 +18,8 @@
     "biography": "I started my own company at 2 years old.",
     "github": "github.com/user2",
     "stackOverflow": "stackOverflow.com/user2",
-    "linkedIn": "linkedin.com/user2"
+    "linkedIn": "linkedin.com/user2",
+    "avatar": "/profiles/profile2.jpg"
   },
   {
     "name": "Amiko",
@@ -27,7 +29,8 @@
     "biography": "I started my own business at 3 years old.",
     "github": "github.com/user3",
     "stackOverflow": "stackOverflow.com/user3",
-    "linkedIn": "linkedin.com/user3"
+    "linkedIn": "linkedin.com/user3",
+    "avatar": "/profiles/profile3.jpg"
   },
   {
     "name": "Kent Beck",
@@ -37,7 +40,9 @@
     "biography": "I started my own restaurant at 4 years old.",
     "github": "github.com/user4",
     "stackOverflow": "stackOverflow.com/user4",
-    "linkedIn": "linkedin.com/user4"
+    "linkedIn": "linkedin.com/user4",
+    "avatar": "/profiles/profile4.png"
+    
   },
   {
     "name": "Edward Berard",
@@ -47,7 +52,8 @@
     "biography": "I started my own ice cream company at 5 years old.",
     "github": "github.com/user5",
     "stackOverflow": "stackOverflow.com/user5",
-    "linkedIn": "linkedin.com/user5"
+    "linkedIn": "linkedin.com/user5",
+    "avatar": "/profiles/profile5.jpg"
   },
   {
     "name": "Alan Kay",
@@ -57,7 +63,8 @@
     "biography": "I started eating at 6 years old.",
     "github": "github.com/user6",
     "stackOverflow": "stackOverflow.com/user6",
-    "linkedIn": "linkedin.com/user6"
+    "linkedIn": "linkedin.com/user6",
+    "avatar": "/profiles/profile6.jpg"
   },
   {
     "name": "C.A.R. Hoare",
@@ -67,7 +74,8 @@
     "biography": "I started dancing at 7 years old.",
     "github": "github.com/user7",
     "stackOverflow": "stackOverflow.com/user7",
-    "linkedIn": "linkedin.com/user7"
+    "linkedIn": "linkedin.com/user7",
+    "avatar": "/profiles/profile7.jpg"
   },
   {
     "name": "David Thomas",
@@ -77,7 +85,8 @@
     "biography": "I started my own company at 8 years old.",
     "github": "github.com/user8",
     "stackOverflow": "stackOverflow.com/user8",
-    "linkedIn": "linkedin.com/user8"
+    "linkedIn": "linkedin.com/user8",
+    "avatar": "/profiles/profile8.jpg"
   },
   {
     "name": "Donald Knuth",
@@ -87,7 +96,8 @@
     "biography": "I'm not 9 years old.",
     "github": "github.com/user9",
     "stackOverflow": "stackOverflow.com/user9",
-    "linkedIn": "linkedin.com/user9"
+    "linkedIn": "linkedin.com/user9",
+    "avatar": "/profiles/profile9.jpg"
   },
   {
     "name": "Lernantino",
@@ -97,6 +107,7 @@
     "biography": "I beat a world record at 10 years old.",
     "github": "github.com/user10",
     "stackOverflow": "stackOverflow.com/user10",
-    "linkedIn": "linkedin.com/user10"
+    "linkedIn": "linkedin.com/user10",
+    "avatar": "/profiles/profile10.jpg"
   }
 ]

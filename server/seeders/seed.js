@@ -9,6 +9,7 @@ db.once('open', async () => {
   try {
     await cleanDB('Profile', 'profiles');
     await cleanDB('Post', 'posts');
+    // await cleanDB('Comment', 'comments')
 
 //thanks josh    
     const profiles = await Profile.create(profileSeeds);

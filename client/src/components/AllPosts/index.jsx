@@ -15,51 +15,55 @@ const AllPosts = ({ posts }) => {
 
                 {posts && posts.map((post) => (
                     <div key={post._id}>
-                        
-                        <Card maxW='md' mb={12}>
-                            <CardHeader>
-                            <Flex spacing='4'>
-                                <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                                    <Avatar name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
 
-                                    <Box>
-                                    <Heading size='sm'>Segun Adebayo</Heading>
-                                    <Text>{post.username}</Text>
-                                    </Box>
-                                </Flex>
-                                <IconButton
-                                    variant='ghost'
-                                    colorScheme='gray'
-                                    aria-label='See menu'
-                                    icon={<BsThreeDotsVertical />}
-                                />
-                                </Flex>
-                            </CardHeader>
-                            <CardBody>
-                                <Text>
-                                {post.body}
-                                </Text>
-                            </CardBody>
-                            <CardFooter
-                                justify='space-between'
-                                flexWrap='wrap'
-                                sx={{
-                                '& > button': {
-                                    minW: '136px',
-                                },
-                                }}
-                            >
-                                <Button flex='1' variant='ghost' leftIcon={<BiLike />}>
-                                Like
-                                </Button>
-                                <Button flex='1' variant='ghost' leftIcon={<BiChat />}>
-                                Comment
-                                </Button>
-                                <Button flex='1' variant='ghost' leftIcon={<BiShare />}>
-                                Share
-                                </Button>
-                            </CardFooter>
-                        </Card>
+                        <Flex justify={'center'}>
+                            <Card maxW='md' mb={12}>
+                                <CardHeader>
+                                <Flex spacing='4'>
+                                    <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
+                                        <Avatar name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
+
+                                        <Box>
+                                        <Heading size='sm'>Segun Adebayo</Heading>
+                                        <Text>{post.username}</Text>
+                                        </Box>
+                                    </Flex>
+                                    <IconButton
+                                        variant='ghost'
+                                        colorScheme='gray'
+                                        aria-label='See menu'
+                                        icon={<BsThreeDotsVertical />}
+                                    />
+                                    </Flex>
+                                </CardHeader>
+                                <CardBody>
+                                    <Text>
+                                    {post.body}
+                                    </Text>
+                                </CardBody>
+                                <CardFooter
+                                    justify='space-between'
+                                    flexWrap='wrap'
+                                    sx={{
+                                    '& > button': {
+                                        minW: '136px',
+                                    },
+                                    }}
+                                >
+                                    <Button flex='1' variant='ghost' leftIcon={<BiLike />}>
+                                    Like
+                                    </Button>
+                                    <Button flex='1' variant='ghost' leftIcon={<BiChat />}>
+                                    Comment
+                                    </Button>
+                                    <Button flex='1' variant='ghost' leftIcon={<BiShare />}>
+                                    Share
+                                    </Button>
+                                </CardFooter>
+                            </Card>
+
+                        </Flex>
+                        
 
                     </div>
                 ))}

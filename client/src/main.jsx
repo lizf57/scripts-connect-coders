@@ -14,6 +14,7 @@ import Careers from './pages/Careers.jsx'
 import EditProfile from './pages/editProfile.jsx';
 import PrivateRoute from './components/PrivateRoute/index.jsx';
 import CodeFriends from './pages/CodeFriends.jsx'
+import SinglePost from './components/SinglePost/index.jsx';
 
 
 const router = createBrowserRouter([
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: '/:profileId/post/:postId',
         element: <PrivateRoute>
-          <Post />
+          <SinglePost />
         </PrivateRoute>
       },
       {

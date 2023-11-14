@@ -51,7 +51,7 @@ const AllPosts = ({ posts, profiles }) => {
                                     />
                                     </Flex>
                                 </CardHeader>
-                                <CardBody>
+                                <CardBody as={Link} to={`${profileId}/post/${_id}`}>
                                     <Text>
                                     {body}
                                     </Text>

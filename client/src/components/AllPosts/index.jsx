@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Container, Text, Flex, Icon, IconButton, Box, Avatar, Card, CardHeader, CardBody, CardFooter,  Heading, Button } from '@chakra-ui/react'
 import { BsThreeDotsVertical } from 'react-icons/bs'
-import { BiLike, BiChat, BiShare } from 'react-icons/bi'
+import { BiLike, BiChat, BiShare, BiDislike } from 'react-icons/bi'
 
 
 const AllPosts = ({ posts, profiles }) => {
@@ -27,7 +27,7 @@ const AllPosts = ({ posts, profiles }) => {
                     <div key={_id}>
 
                         <Flex justify={'center'}>
-                            <Card maxW='md' mb={12}>
+                            <Card maxW='lg' mb={12}>
                                 <CardHeader>
                                 <Flex spacing='4'>
                                     <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
@@ -67,9 +67,14 @@ const AllPosts = ({ posts, profiles }) => {
                                     <Button flex='1' variant='ghost' leftIcon={<BiChat />}>
                                     Comment
                                     </Button>
-                                    <Button flex='1' variant='ghost' leftIcon={<BiShare />}>
-                                    Share
+                                    <Button flex='1' variant='ghost' leftIcon={<BiDislike />}>
+                                    Dislike
                                     </Button>
+
+                                    {/* Stretch Goal */}
+                                    {/* <Button flex='1' variant='ghost' leftIcon={<BiShare />}>
+                                    Share
+                                    </Button> */}
                                 </CardFooter>
                             </Card>
 

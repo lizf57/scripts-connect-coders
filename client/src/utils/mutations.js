@@ -48,3 +48,11 @@ export const ADD_POST = gql`
     }
   }
 `;
+
+export const REMOVE_PROFILE = gql`
+mutation removeProfile($profileId: ID!) {
+  removeProfile(profileId: $profileId) {
+    _id
+  }
+}
+`;

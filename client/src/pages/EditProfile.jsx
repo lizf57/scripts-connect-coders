@@ -3,7 +3,7 @@ import { Link, FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem
 import { useNavigate } from 'react-router-dom'
 import '../style.css'
 import { useMutation } from '@apollo/client';
-import { UPDATE_PROFILE } from '../utils/mutations';
+import { UPDATE_PROFILE, REMOVE_PROFILE } from '../utils/mutations';
 import auth from '../utils/auth'
 import CloudinaryUploadWidget from "../components/UploadWidget/UploadWidget";
 import { Cloudinary } from "@cloudinary/url-gen";
@@ -60,40 +60,6 @@ const EditProfile = () => {
       const myImage = cld.image(publicId);
     
     const [updateProfile, {loading, data, error}] = useMutation(UPDATE_PROFILE)
-
-    // const avatarData = [
-    //     {
-    //         imgPath: "https://bit.ly/dan-abramov",
-    //     },
-    //     {
-    //         imgPath: "https://bit.ly/kent-c-dodds",
-    //     },
-    //     {
-    //         imgPath: "https://bit.ly/ryan-florence",
-    //     },
-    //     {
-    //         imgPath: "https://bit.ly/prosper-baba",
-    //     },
-    //     {
-    //         imgPath: "https://bit.ly/code-beast",
-    //     },
-    //     {
-    //         imgPath: "https://bit.ly/sage-adebayo",
-    //     },
-    //     {
-    //         imgPath: "/profiles/profile1.jpg",
-    //     },
-    //     {
-    //         imgPath: "/profiles/profile2.jpg",
-    //     },
-    //     {
-    //         imgPath: "/profiles/profile3.jpg"
-    //     },
-    //     {
-    //         imgPath: "/profiles/profile5.jpg",
-    //     },
-    // ]
-
     
     // changes in form fields
     const handleInputChange = (e) => {
@@ -104,18 +70,9 @@ const EditProfile = () => {
         })
     }
     
-    // // selecting an avatar
-    // const [ previewAvatar, setPreviewAvatar ] = useState('');
-
-    // const handleAvatarChange = (e) => {
-    //     const selectedAvatar = e.target
-    //     setFormData({...formData, avatarData: selectedAvatar })
-    //     setPreviewAvatar(selectedAvatar)
-    // }
-    
     const saveChanges = async (e) => {
       if(publicId) {
-        setFormData({...formData, avatar: publicId})
+        await setFormData({...formData, avatar: publicId})
       }
       e.preventDefault();
 
@@ -133,6 +90,25 @@ const EditProfile = () => {
         } catch (error) {
             console.log("Changes not saved", error)
         }
+
+    }
+
+    const [removeProfile, ] = useMutation(REMOVE_PROFILE)
+    const deleteRequestHandler = async (e) => {
+      e.preventDefault();
+
+      try {
+            
+        await removeProfile({
+            variables: {
+                profileId: profileId
+            }
+        })
+        auth.logout()
+        window.location.replace(`/login`)
+      }catch (error) {
+        console.log("Changes not saved", error)
+      }
 
     }
 
@@ -219,12 +195,12 @@ const EditProfile = () => {
              
             </Stack>
 
+        </form>
             <Stack direction='row' justifyContent={'flex-end'} spacing={4} mt={7}>
-              <Button bg={'gray'} variant='solid' type='submit'>
+              <Button bg={'gray'} variant='solid' type='button' onClick={deleteRequestHandler}>
                 Delete Profile
               </Button>
             </Stack>
-        </form>
     </Flex>
     </Flex>
     </>
@@ -233,7 +209,9 @@ const EditProfile = () => {
 
 export default EditProfile
 
-// Old avatar addition
+
+// Old avatar addition code
+
 // <Wrap>
 // {avatarData.map(avatar => (
 //     <WrapItem >
@@ -249,3 +227,47 @@ export default EditProfile
 
 // ))}
 // </Wrap>
+
+
+// const avatarData = [
+    //     {
+    //         imgPath: "https://bit.ly/dan-abramov",
+    //     },
+    //     {
+    //         imgPath: "https://bit.ly/kent-c-dodds",
+    //     },
+    //     {
+    //         imgPath: "https://bit.ly/ryan-florence",
+    //     },
+    //     {
+    //         imgPath: "https://bit.ly/prosper-baba",
+    //     },
+    //     {
+    //         imgPath: "https://bit.ly/code-beast",
+    //     },
+    //     {
+    //         imgPath: "https://bit.ly/sage-adebayo",
+    //     },
+    //     {
+    //         imgPath: "/profiles/profile1.jpg",
+    //     },
+    //     {
+    //         imgPath: "/profiles/profile2.jpg",
+    //     },
+    //     {
+    //         imgPath: "/profiles/profile3.jpg"
+    //     },
+    //     {
+    //         imgPath: "/profiles/profile5.jpg",
+    //     },
+    // ]
+
+
+        // // selecting an avatar
+    // const [ previewAvatar, setPreviewAvatar ] = useState('');
+
+    // const handleAvatarChange = (e) => {
+    //     const selectedAvatar = e.target
+    //     setFormData({...formData, avatarData: selectedAvatar })
+    //     setPreviewAvatar(selectedAvatar)
+    // }

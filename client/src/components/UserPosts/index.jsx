@@ -75,7 +75,7 @@ const UserPosts = ({ userPosts, userProfile }) => {
 
                         </Flex>
                     </div>
-                ))}
+                )).sort().reverse()}
             </Container>
         </>
     )

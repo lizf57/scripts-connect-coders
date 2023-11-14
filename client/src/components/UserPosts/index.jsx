@@ -4,42 +4,34 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 import { BiLike, BiChat, BiShare, BiDislike } from 'react-icons/bi'
 
 
-const AllPosts = ({ posts, profiles }) => {
-    if (!posts.length) {
-        return <h3>No Posts Yet!</h3>
-    }
+const UserPosts = ({ userPosts, userProfile }) => {
+    console.log(userProfile)
+    // if (!profile.length) {
+    //     return <h3>No Posts Yet!</h3>
+    // }
 
     return (
         <>
-            <Container maxW={'700px'} mb={40}>
-
-                {posts && posts.map(({
-                    createdAt, 
-                    body, 
+            <Container maxW={'700px'}>
+                {userPosts && userPosts.map(({
                     _id,
-                    profile: {
-                        username,
-                        avatar,
-                        name,
-                        _id: profileId
-                    }
+                    body,
+                    createdAt
                 }) => (
                     <div key={_id}>
-
-                        <Flex justify={'center'}>
+                       <Flex justify={'center'}>
                             <Card maxW='lg' mb={12}>
                                 <CardHeader>
                                 <Flex spacing='4'>
                                     <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                                        <Avatar name={`Avatar of ${name}`} src={avatar} />
+                                        <Avatar name={`Avatar of ${userProfile.name}`} src={userProfile.avatar} />
 
                                         <Box>
-                                            <Link to={`/profiles/${profileId}`}>
-                                                <Heading className='nameLink' size='sm'>{name}</Heading>
-                                            </Link>
-                                            <Link to={`/profiles/${profileId}`}>
-                                                <Text className='nameLink'>{username}</Text>
-                                            </Link>
+                                           
+                                                <Heading size='sm'>{userProfile.name}</Heading>
+                                           
+                                                <Text>{userProfile.username}</Text>
+                                           
                                         <Text fontSize={'10px'}>{createdAt}</Text>
                                         </Box>
                                     </Flex>
@@ -83,14 +75,11 @@ const AllPosts = ({ posts, profiles }) => {
                             </Card>
 
                         </Flex>
-                        
-
                     </div>
                 ))}
-
             </Container>
         </>
     )
 }
 
-export default AllPosts
+export default UserPosts

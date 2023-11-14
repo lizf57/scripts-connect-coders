@@ -23,6 +23,7 @@ export const QUERY_SINGLE_PROFILE = gql`
       linkedIn
       stackOverflow
       posts {
+        _id
         body
         createdAt
       }

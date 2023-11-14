@@ -2,10 +2,12 @@ import React, { useState} from 'react'
 import { Link, FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem, Stack, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import '../style.css'
-import UploadWidget from '../components/UploadWidget/UploadWidget';
 import { useMutation } from '@apollo/client';
 import { UPDATE_PROFILE } from '../utils/mutations';
 import auth from '../utils/auth'
+import CloudinaryUploadWidget from "../components/UploadWidget/UploadWidget";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { AdvancedImage, responsive, placeholder } from "@cloudinary/react";
 
 const EditProfile = () => {
 
@@ -23,7 +25,38 @@ const EditProfile = () => {
         github: "",
         stackoverflow: "",
         linkedin: "",
+        avatar: ""
     });
+
+    //avatar cloudinary setter
+    const [publicId, setPublicId] = useState("");
+    const [cloudName] = useState("dkcjh5c0w");
+    const [uploadPreset] = useState("datvdftp");
+    const [uwConfig] = useState({
+        cloudName,
+        uploadPreset,
+        maxImageFileSize: 2000000,  //restrict file size to less than 2MB
+        maxImageWidth: 800, //Scales the image down to a width of 2000 pixels before uploading
+            //other options available
+            // cropping: true, //add a cropping step
+            // showAdvancedOptions: true,  //add advanced options (public_id and tag)
+            // sources: [ "local", "url"], // restrict the upload sources to URL and local files
+            // multiple: false,  //restrict upload to a single file
+            // folder: "user_images", //upload files to the specified folder
+            // tags: ["users", "profile"], //add the given tags to the uploaded files
+            // context: {alt: "user_uploaded"}, //add the given context data to the uploaded files
+            // clientAllowedFormats: ["images"], //restrict uploading to image files only
+            // theme: "purple", //change to a purple theme
+        
+      });
+
+      const cld = new Cloudinary({
+        cloud: {
+          cloudName
+        }
+      });
+
+      const myImage = cld.image(publicId);
     
     const [updateProfile, {loading, data, error}] = useMutation(UPDATE_PROFILE)
 
@@ -76,10 +109,10 @@ const EditProfile = () => {
     }
     
     const saveChanges = () => {
-
-        // TODO send formData to server
+        
         try {
-
+            
+            // send formData to server
             console.log(formData)
             updateProfile({
                 variables: {
@@ -170,8 +203,14 @@ const EditProfile = () => {
                 </Wrap>
             </FormControl>
                 <Flex> 
-                    <Text>Or Choose your own! </Text>
-                    <UploadWidget></UploadWidget>
+                    <CloudinaryUploadWidget uwConfig={uwConfig} setPublicId={setPublicId} />
+                    <div style={{ width: "800px" }}>
+                        <AdvancedImage
+                        style={{ maxWidth: "100%" }}
+                        cldImg={myImage}
+                        plugins={[responsive(), placeholder()]}
+                        />
+                    </div>
                 </Flex>
 
             <Stack direction='row' spacing={4} mt={7}>

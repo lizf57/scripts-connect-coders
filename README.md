@@ -18,7 +18,7 @@ Scripts is a social media platform tailored to the needs of software developers 
 
 
 ## [Usage](#table-of-contents)
-1. To deploy this application, open the command line in the root of the project and type `npm run seed` then `cd client` then `npm run dev`. 
+1. To deploy this application, open the command line in the root of the project and type `npm run seed` then `cd client` then `npm run develop`. 
 
 
 ## [License](#table-of-contents)
@@ -28,12 +28,13 @@ Scripts is a social media platform tailored to the needs of software developers 
 ## [Badges](#table-of-contents)
 [![License: MIT](https://img.shields.io/badge/MIT_License-purple)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-blue)](https://react.dev/)
-[![Typewriter Effect](https://img.shields.io/badge/Typewriter%20Effect-magenta)](https://www.npmjs.com/package/typewriter-effect)
+[![Typewriter Effect](https://img.shields.io/badge/Typewriter%20Effect-green)](https://www.npmjs.com/package/typewriter-effect)
 [![Font Awesome](https://img.shields.io/badge/Font%20Awesome-lightblue)](https://fontawesome.com/)
 [![Chakra UI](https://img.shields.io/badge/Chakra%20UI-teal)](https://chakra-ui.com/)
-Cloudinary
-GraphQL
-Apollo
+[![Cloudinary](https://img.shields.io/badge/Cloudinary-pink)](https://cloudinary.com/)
+[![GraphQL](https://img.shields.io/badge/GraphQL-FF33FF
+)](https://graphql.org)
+[![Apollo](https://img.shields.io/badge/Apollo-F72D15)](https://www.apollographql.com)
 
 
 

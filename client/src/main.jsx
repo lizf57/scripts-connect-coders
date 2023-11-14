@@ -14,7 +14,7 @@ import Careers from './pages/Careers.jsx'
 import EditProfile from './pages/editProfile.jsx';
 import PrivateRoute from './components/PrivateRoute/index.jsx';
 import CodeFriends from './pages/CodeFriends.jsx'
-import SinglePost from './components/SinglePost/index.jsx';
+import SinglePost from './pages/SinglePost.jsx';
 
 
 const router = createBrowserRouter([

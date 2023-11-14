@@ -1,9 +1,9 @@
 const SinglePost = () => {
- return(
-    <>
-        TEST!
-    </>
- )
+    return (
+        <>
+        Test
+        </>
+    )
 }
 
 export default SinglePost

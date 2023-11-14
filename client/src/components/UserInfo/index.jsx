@@ -29,6 +29,7 @@ const UserInfo = () => {
     }
 
     console.log(profile.posts)
+    console.log(profile)
 
     return (
        <VStack>
@@ -44,7 +45,7 @@ const UserInfo = () => {
                 <Box>
                     <Avatar 
                         name={`Avatar for ${profile.username}`}
-                        src={profile.avatar}
+                        src={`https://res.cloudinary.com/dkcjh5c0w/image/upload/v1699988362/${profile.avatar}.webp`}
                         size={'xl'}
                     />
                 </Box>

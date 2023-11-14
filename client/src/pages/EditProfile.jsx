@@ -81,7 +81,7 @@ const EditProfile = () => {
 
     }
 
-    const history = useHistory();
+    // const history = useHistory();
 
   return (
     <>
@@ -167,7 +167,9 @@ const EditProfile = () => {
               </Button>
 
               <Link href={`/profiles/${profileId}`}>
-              <Button bg={'lightPurple'} variant='solid' type='button' onClick={() => history.push(`/profiles/${profileId}`)}>
+              <Button bg={'lightPurple'} variant='solid' type='button' 
+            //   onClick={() => history.push(`/profiles/${profileId}`)}
+              >
                 Cancel
               </Button>
               </Link>

@@ -45,9 +45,20 @@ const resolvers = {
     },
 
     updateProfile: async (parent, { profileId, profile }) => {
+      const currentUser = await Profile.findOne({ profileId })
+
+      if(profile.avatar) {
+        if(currentUser.avatar) {
+          await cloudinary.uploader.destroy(currentUser.avatar.split("/").pop().split(".")[0])
+        }
+        const uploadedProfilePhoto = await cloudinary.uploader.upload(avatar)
+        profile.avatar = uploadedProfilePhoto.secure_url
+      }
       return Profile.findByIdAndUpdate(
         profileId,
         profile,
+        // cloudinary set up structure
+        
         {new: true}
       )
     },

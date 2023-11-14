@@ -31,10 +31,12 @@ const AllPosts = ({ posts, profiles }) => {
                                 <CardHeader>
                                 <Flex spacing='4'>
                                     <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                                        <Avatar name='Segun Adebayo' src={avatar} />
+                                        <Avatar name={`Avatar of ${name}`} src={avatar} />
 
                                         <Box>
-                                        <Heading size='sm'>{name}</Heading>
+                                            <Link to={`/profiles/${profileId}`}>
+                                                <Heading className='nameLink' size='sm'>{name}</Heading>
+                                            </Link>
                                         <Text>{username}</Text>
                                         <Text fontSize={'10px'}>{createdAt}</Text>
                                         </Box>

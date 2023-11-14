@@ -12,6 +12,24 @@ export const ADD_PROFILE = gql`
   }
 `;
 
+// export const UPDATE_PROFILE = gql`
+//   mutation UpdateProfile($name: String!, $username: String!, $biography: String, $github: String, $stackOverflow: String, $linkedIn: String, $avatar: String) {
+//     addProfile(name: $name, username: $username, biography: $biography, github: $github, stackOverflow: $stackOverflow, linkedIn: $linkedIn, avatar: $avatar) {
+//       profile {
+//         _id
+//         name
+//         username
+//         biography
+//         github
+//         stackOverflow
+//         linkedIn
+//         avatar
+//       }
+//       token
+//     }
+//   }
+// `;
+
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {

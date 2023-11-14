@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link, FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem, Stack, Button } from '@chakra-ui/react'
+import { useMutation } from '@apollo/client';
 
 import '../style.css'
 
 const EditProfile = () => {
 
     const profileId = localStorage.getItem('profile_id')
-
+    
   return (
     <>
     <Flex

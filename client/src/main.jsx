@@ -41,11 +41,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/:profileId/post/:postId',
-        element: <Post />
+        element: <PrivateRoute>
+          <Post />
+        </PrivateRoute>
       },
       {
         path: '/editProfile',
-        element: <EditProfile />,
+        element: <PrivateRoute>
+            <EditProfile />
+        </PrivateRoute>
       },
       {
         path: '/about',
@@ -61,7 +65,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/codefriends',
-        element: <CodeFriends />
+        element: <PrivateRoute>
+          <CodeFriends />
+        </PrivateRoute>
       }
     ]
   },

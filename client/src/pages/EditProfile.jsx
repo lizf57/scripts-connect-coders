@@ -21,10 +21,11 @@ const EditProfile = () => {
         name: "",
         username: "",
         email: "",
+        password: "",
         biography: "",
         github: "",
-        stackoverflow: "",
-        linkedin: "",
+        stackOverflow: "",
+        linkedIn: "",
         avatar: ""
     });
 
@@ -97,24 +98,28 @@ const EditProfile = () => {
     // changes in form fields
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData({...formData, [name]: value })
+        setFormData({
+            ...formData, 
+            [name]: value 
+        })
     }
     
     // selecting an avatar
     const [ previewAvatar, setPreviewAvatar ] = useState('');
 
-    const handleAvatarChange = (selectedAvatar) => {
+    const handleAvatarChange = (e) => {
+        const selectedAvatar = e.target
         setFormData({...formData, avatarData: selectedAvatar })
         setPreviewAvatar(selectedAvatar)
     }
     
-    const saveChanges = () => {
-        
+    const saveChanges = async (e) => {
+      e.preventDefault();
+      console.log(formData,1);
+      console.log(profileId,2)
         try {
             
-            // send formData to server
-            console.log(formData)
-            updateProfile({
+            await updateProfile({
                 variables: {
                     profileId: profileId,
                     profile: formData
@@ -142,45 +147,46 @@ const EditProfile = () => {
     >
     <Flex flexDir={'column'} w={'70vw'}>
         <Text mb={10} fontSize={'30px'} fontWeight={'700'} color={'lightPurple'}>Make changes to profile:</Text>
-
+        <form onSubmit={saveChanges}>
             <FormControl  mb={7}>
                 <FormLabel>Name:</FormLabel>
-                <Input placeholder='name' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='name' type='text'/>
+                <Input placeholder='name' borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='name' type='text' value={formData.name} onChange={handleInputChange}/>
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Username:</FormLabel>
-                <Input placeholder='username'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='username' type='text'/>
+                <Input placeholder='username'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='username' type='text' value={formData.username} onChange={handleInputChange} />
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Email:</FormLabel>
-                <Input placeholder='email'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='email' type='text'/>
+                <Input placeholder='email'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='email' type='text'
+                value={formData.email} onChange={handleInputChange}/>
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Password:</FormLabel>
-                <Input placeholder='password'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='password' type='password'/>
+                <Input placeholder='password'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='password' type='password' value={formData.password} onChange={handleInputChange} />
             </FormControl>  
 
             <FormControl  mb={7}>
                 <FormLabel>Biography:</FormLabel>
-                <Input placeholder='bio'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='bio' type='text'/>
+                <Input placeholder='biography'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='biography' type='text' value={formData.biography} onChange={handleInputChange}/>
             </FormControl>  
 
             <FormControl mb={7}>
                 <FormLabel>Github Account:</FormLabel>
-                <Input placeholder='Github URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='github' type='text'/>
+                <Input placeholder='Github URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='github' type='text' value={formData.github} onChange={handleInputChange}/>
             </FormControl> 
 
             <FormControl mb={7}>
                 <FormLabel>StackOverflow Account:</FormLabel>
-                <Input placeholder='StackOverflow URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='stackoverflow' type='text'/>
+                <Input placeholder='StackOverflow URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='stackOverflow' type='text' value={formData.stackoverflow} onChange={handleInputChange}/>
             </FormControl>  
 
             <FormControl mb={7}>
                 <FormLabel>LinkedIn Account:</FormLabel>
-                <Input placeholder='LinkedIn URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='linkedin' type='text'/>
+                <Input placeholder='LinkedIn URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='linkedIn' type='text' value={formData.linkedin} onChange={handleInputChange}/>
             </FormControl>   
 
             <FormControl  mb={7}>
@@ -202,19 +208,19 @@ const EditProfile = () => {
                 ))}
                 </Wrap>
             </FormControl>
-                <Flex> 
-                    <CloudinaryUploadWidget uwConfig={uwConfig} setPublicId={setPublicId} />
-                    <div style={{ width: "800px" }}>
-                        <AdvancedImage
-                        style={{ maxWidth: "100%" }}
-                        cldImg={myImage}
-                        plugins={[responsive(), placeholder()]}
-                        />
-                    </div>
-                </Flex>
+            <Flex> 
+                <CloudinaryUploadWidget uwConfig={uwConfig} setPublicId={setPublicId} />
+                <div style={{ width: "800px" }}>
+                    <AdvancedImage
+                    style={{ maxWidth: "100%" }}
+                    cldImg={myImage}
+                    plugins={[responsive(), placeholder()]}
+                    />
+                </div>
+            </Flex>
 
             <Stack direction='row' spacing={4} mt={7}>
-              <Button bg={'neonBlue'} variant='solid' type='button' onClick={saveChanges}>
+              <Button bg={'neonBlue'} variant='solid' type='submit'>
                 Save Changes
               </Button>
 
@@ -231,7 +237,7 @@ const EditProfile = () => {
                 Delete Profile
               </Button>
             </Stack>
-            
+        </form>
     </Flex>
     </Flex>
     </>

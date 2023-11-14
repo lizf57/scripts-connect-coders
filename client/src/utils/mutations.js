@@ -17,6 +17,8 @@ export const UPDATE_PROFILE = gql`
     updateProfile(profileId: $profileId, profile: $profile) {
       _id
       name
+      email
+      password
       username
       biography
       github

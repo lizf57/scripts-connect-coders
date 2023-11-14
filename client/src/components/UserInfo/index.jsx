@@ -52,24 +52,38 @@ const UserInfo = () => {
             </Flex>
 
             {/* Links display */}
+            
             <Flex justifyContent={'flex-end'} w={'full'}>
-                <Link href={`https://${profile.github}`} isExternal>
-                    <Box mx={3}>
-                    <FontAwesomeIcon icon={faGithub} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
-                    </Box>
-                </Link>
+                    {profile.github ? (
+                        <Link href={`https://${profile.github}`} isExternal>
+                            <Box mx={3}>
+                            <FontAwesomeIcon icon={faGithub} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
+                            </Box>
+                        </Link>
+                    ) : (
+                        ''
+                    )}
 
-                <Link href={`https://${profile.stackOverflow}`} isExternal>
-                    <Box mx={3}> 
-                    <FontAwesomeIcon icon={faStackOverflow} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
-                    </Box>
-                </Link>
+                    {profile.stackOverflow ? (
+                        <Link href={`https://${profile.stackOverflow}`} isExternal>
+                            <Box mx={3}>
+                            <FontAwesomeIcon icon={faStackOverflow} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
+                            </Box>
+                        </Link>
+                    ) : (
+                        ''
+                    )}
 
-                <Link href={`https://${profile.linkedIn}`} isExternal>
-                    <Box mx={3}> 
-                    <FontAwesomeIcon icon={faLinkedin} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
-                    </Box>
-                </Link>
+                    {profile.linkedIn ? (
+                        <Link href={`https://${profile.linkedIn}`} isExternal>
+                            <Box mx={3}>
+                            <FontAwesomeIcon icon={faLinkedin} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
+                            </Box>
+                        </Link>
+                    ) : (
+                        ''
+                    )}
+
             </Flex>
 
             <Flex w={'full'} mt={7}>

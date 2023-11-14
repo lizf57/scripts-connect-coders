@@ -5,10 +5,9 @@ import { BiLike, BiChat, BiShare, BiDislike } from 'react-icons/bi'
 
 
 const UserPosts = ({ userPosts, userProfile }) => {
-    console.log(userProfile)
-    // if (!profile.length) {
-    //     return <h3>No Posts Yet!</h3>
-    // }
+    if (!userPosts.length) {
+        return <h3>No Posts Yet!</h3>
+    }
 
     return (
         <>

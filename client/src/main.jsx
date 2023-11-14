@@ -34,9 +34,10 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />
       }, {
-        // TODO: change later, only so I can see what I'm doing design-wise
         path: '/profiles/:profileId',
-        element: <User />
+        element: <PrivateRoute>
+          <User />
+        </PrivateRoute>
       },
       {
         path: '/:profileId/post/:postId',

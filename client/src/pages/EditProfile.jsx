@@ -1,12 +1,86 @@
-import React from 'react'
+import React, { useState} from 'react'
 import { Link, FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem, Stack, Button } from '@chakra-ui/react'
-import { useMutation } from '@apollo/client';
+import { useHistory } from 'react-router-dom'
 
 import '../style.css'
 
 const EditProfile = () => {
 
     const profileId = localStorage.getItem('profile_id')
+
+    // form fields
+    const [ formData, setFormData ] = useState({
+        name: "",
+        username: "",
+        email: "",
+        bio: "",
+        github: "",
+        stackoverflow: "",
+        linkedin: "",
+    });
+
+    const avatarData = [
+        {
+            imgPath: "https://bit.ly/dan-abramov",
+        },
+        {
+            imgPath: "https://bit.ly/kent-c-dodds",
+        },
+        {
+            imgPath: "https://bit.ly/ryan-florence",
+        },
+        {
+            imgPath: "https://bit.ly/prosper-baba",
+        },
+        {
+            imgPath: "https://bit.ly/code-beast",
+        },
+        {
+            imgPath: "https://bit.ly/sage-adebayo",
+        },
+        {
+            imgPath: "/profiles/profile1.jpg",
+        },
+        {
+            imgPath: "/profiles/profile2.jpg",
+        },
+        {
+            imgPath: "/profiles/profile3.jpg"
+        },
+        {
+            imgPath: "/profiles/profile5.jpg",
+        },
+    ]
+
+    
+    // changes in form fields
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({...formData, [name]: value })
+    }
+    
+    // selecting an avatar
+    const [ previewAvatar, setPreviewAvatar ] = useState('');
+
+    const handleAvatarChange = (selectedAvatar) => {
+        setFormData({...formData, avatarData: selectedAvatar })
+        setPreviewAvatar(selectedAvatar)
+    }
+    
+    const saveChanges = () => {
+
+        // TODO send formData to server
+        try {
+
+            console.log(formData)
+
+        } catch (error) {
+            console.log("Changes not saved", error)
+        }
+
+    }
+
+    const history = useHistory();
     
   return (
     <>
@@ -39,7 +113,7 @@ const EditProfile = () => {
 
             <FormControl  mb={7}>
                 <FormLabel>Password:</FormLabel>
-                <Input placeholder='password'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='password' type='text'/>
+                <Input placeholder='password'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='password' type='password'/>
             </FormControl>  
 
             <FormControl  mb={7}>
@@ -65,47 +139,29 @@ const EditProfile = () => {
             <FormControl  mb={7}>
                 <FormLabel>Choose an Avatar:</FormLabel>
             <Wrap>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar1' size='lg' alt={'avatar1'} src='https://bit.ly/dan-abramov' />
+                {avatarData.map(avatar => (
+                    <WrapItem >
+                    <Avatar 
+                        className='avatar'
+                        name='avatar'
+                        size='lg' 
+                        alt='avatarPic'
+                        src={avatar.imgPath} 
+                        onClick={() => handleAvatarChange(avatar.imgPath)}
+                        />
                 </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar2' size='lg' alt={'avatar2'}  src='https://bit.ly/kent-c-dodds' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar3' size='lg' alt={'avatar3'}  src='https://bit.ly/ryan-florence' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar4' size='lg' alt={'avatar4'}  src='https://bit.ly/prosper-baba' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar5' size='lg' alt={'avatar5'}  src='https://bit.ly/code-beast' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar6' size='lg' alt={'avatar6'}  src='https://bit.ly/sage-adebayo' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar7' size='lg' alt={'avatar7'}  src='/profiles/profile1.jpg' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar8' size='lg' alt={'avatar8'}  src='/profiles/profile2.jpg' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar9' size='lg' alt={'avatar9'}  src='/profiles/profile3.jpg' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar10' size='lg' alt={'avatar10'}  src='/profiles/profile5.jpg' />
-                </WrapItem>
+
+                ))}
                 </Wrap>
             </FormControl>
 
-            
             <Stack direction='row' spacing={4} mt={7}>
-              <Button bg={'neonBlue'} variant='solid' type='submit'>
+              <Button bg={'neonBlue'} variant='solid' type='button' onClick={saveChanges}>
                 Save Changes
               </Button>
 
               <Link href={`/profiles/${profileId}`}>
-              <Button bg={'lightPurple'} variant='solid' type='submit'>
+              <Button bg={'lightPurple'} variant='solid' type='button' onClick={() => history.push(`/profiles/${profileId}`)}>
                 Cancel
               </Button>
               </Link>

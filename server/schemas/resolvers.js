@@ -42,7 +42,12 @@ const resolvers = {
       const token = signToken(profile);
       return { token, profile };
     },
-
+    // TODO:
+    // updateProfile: async (parent, { profileId }) => {
+    //   return Profile.findByIdAndUpdate({
+    //     _id: profileId
+    //   })
+    // },
     
     removeProfile: async (parent, { profileId }) => {
       return Profile.findOneAndDelete({ _id: profileId });

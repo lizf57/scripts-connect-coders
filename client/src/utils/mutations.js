@@ -11,7 +11,7 @@ export const ADD_PROFILE = gql`
     }
   }
 `;
-
+// TODO: 
 // export const UPDATE_PROFILE = gql`
 //   mutation UpdateProfile($name: String!, $username: String!, $biography: String, $github: String, $stackOverflow: String, $linkedIn: String, $avatar: String) {
 //     addProfile(name: $name, username: $username, biography: $biography, github: $github, stackOverflow: $stackOverflow, linkedIn: $linkedIn, avatar: $avatar) {

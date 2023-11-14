@@ -10,6 +10,7 @@ span.username {
 .avatar:hover {
 	background-color: #FFFFFF;
 	box-shadow: 0px 0px 4px 4px #cb6ce6;
+    cursor: pointer;
 }
 
 .nameLink:hover{

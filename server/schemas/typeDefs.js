@@ -36,6 +36,7 @@ type Post {
   type Mutation {
     addProfile(name: String!, username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+  
     
     addPost(profileId: ID!, post: String!): Profile
     removeProfile(profileId: ID!): Profile
@@ -45,4 +46,4 @@ type Post {
   
   module.exports = typeDefs;
 
-    
+  // TODO need to add updateProfile

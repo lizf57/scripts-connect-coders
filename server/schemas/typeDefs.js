@@ -14,6 +14,18 @@ type Profile {
   avatar: String
 }
 
+input ProfileInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  biography: String
+  github: String
+  stackOverflow: String
+  linkedIn: String
+  avatar: String
+}
+
 type Post {
     _id: ID
     profile: Profile
@@ -29,13 +41,14 @@ type Post {
   type Query {
     profiles: [Profile]!
     profile(profileId: ID!): Profile
-    posts: [Post]!
+    posts(skip: Int): [Post]!
     post(postId: ID!): Post
   }
   
   type Mutation {
     addProfile(name: String!, username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    updateProfile(profileId: ID!, profile: ProfileInput!): Profile
   
     
     addPost(profileId: ID!, post: String!): Profile

@@ -34,8 +34,8 @@ export const QUERY_SINGLE_PROFILE = gql`
 `;
 
 export const QUERY_POSTS = gql`
-  query allPosts {
-    posts {
+  query allPosts($skip: Int) {
+    posts(skip: $skip) {
       _id
       body
       createdAt

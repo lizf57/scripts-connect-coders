@@ -12,8 +12,9 @@ const resolvers = {
       return Profile.findOne({ _id: profileId }).populate('posts')
     },
 
-    posts: async () => {
-      return Post.find().populate('profile').sort({createdAt: -1})
+    posts: async (parent, { skip=0 }) => {
+      return Post.find().populate('profile').skip(skip).limit(5)
+      // .sort({createdAt: -1})
     }
 
   },
@@ -42,12 +43,14 @@ const resolvers = {
       const token = signToken(profile);
       return { token, profile };
     },
-    // TODO:
-    // updateProfile: async (parent, { profileId }) => {
-    //   return Profile.findByIdAndUpdate({
-    //     _id: profileId
-    //   })
-    // },
+
+    updateProfile: async (parent, { profileId, profile }) => {
+      return Profile.findByIdAndUpdate(
+        profileId,
+        profile,
+        {new: true}
+      )
+    },
     
     removeProfile: async (parent, { profileId }) => {
       return Profile.findOneAndDelete({ _id: profileId });

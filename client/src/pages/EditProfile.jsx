@@ -1,24 +1,31 @@
 import React, { useState} from 'react'
 import { Link, FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem, Stack, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
-
 import '../style.css'
 import UploadWidget from '../components/UploadWidget/UploadWidget';
+import { useMutation } from '@apollo/client';
+import { UPDATE_PROFILE } from '../utils/mutations';
+import auth from '../utils/auth'
 
 const EditProfile = () => {
 
-    const profileId = localStorage.getItem('profile_id')
+    const profileId = localStorage.getItem('profile_id');
+
+    const savedProfile = auth.getProfile()
+    const loggedInUserId = savedProfile?.data?._id
 
     // form fields
     const [ formData, setFormData ] = useState({
         name: "",
         username: "",
         email: "",
-        bio: "",
+        biography: "",
         github: "",
         stackoverflow: "",
         linkedin: "",
     });
+    
+    const [updateProfile, {loading, data, error}] = useMutation(UPDATE_PROFILE)
 
     const avatarData = [
         {
@@ -74,6 +81,12 @@ const EditProfile = () => {
         try {
 
             console.log(formData)
+            updateProfile({
+                variables: {
+                    profileId: profileId,
+                    profile: formData
+                }
+            })
 
         } catch (error) {
             console.log("Changes not saved", error)

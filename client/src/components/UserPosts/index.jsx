@@ -4,7 +4,14 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 import { BiLike, BiChat, BiShare, BiDislike } from 'react-icons/bi'
 
 
-const UserPosts = ({ userPosts, userProfile }) => {
+const UserPosts = ({
+        userPosts, 
+        userProfile: {
+            name,
+            username,
+            avatar
+        } 
+    }) => {
     if (!userPosts.length) {
         return <h3>No Posts Yet!</h3>
     }
@@ -18,18 +25,19 @@ const UserPosts = ({ userPosts, userProfile }) => {
                     createdAt
                 }) => (
                     <div key={_id}>
+                        
                        <Flex justify={'center'}>
                             <Card maxW='lg' mb={12}>
                                 <CardHeader>
                                 <Flex spacing='4'>
                                     <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                                        <Avatar name={`Avatar of ${userProfile.name}`} src={userProfile.avatar} />
+                                        <Avatar name={`Avatar of ${name}`} src={avatar} />
 
                                         <Box>
                                            
-                                                <Heading size='sm'>{userProfile.name}</Heading>
+                                                <Heading size='sm'>{name}</Heading>
                                            
-                                                <Text>{userProfile.username}</Text>
+                                                <Text>{username}</Text>
                                            
                                         <Text fontSize={'10px'}>{createdAt}</Text>
                                         </Box>

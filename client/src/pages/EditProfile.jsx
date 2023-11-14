@@ -61,38 +61,38 @@ const EditProfile = () => {
     
     const [updateProfile, {loading, data, error}] = useMutation(UPDATE_PROFILE)
 
-    const avatarData = [
-        {
-            imgPath: "https://bit.ly/dan-abramov",
-        },
-        {
-            imgPath: "https://bit.ly/kent-c-dodds",
-        },
-        {
-            imgPath: "https://bit.ly/ryan-florence",
-        },
-        {
-            imgPath: "https://bit.ly/prosper-baba",
-        },
-        {
-            imgPath: "https://bit.ly/code-beast",
-        },
-        {
-            imgPath: "https://bit.ly/sage-adebayo",
-        },
-        {
-            imgPath: "/profiles/profile1.jpg",
-        },
-        {
-            imgPath: "/profiles/profile2.jpg",
-        },
-        {
-            imgPath: "/profiles/profile3.jpg"
-        },
-        {
-            imgPath: "/profiles/profile5.jpg",
-        },
-    ]
+    // const avatarData = [
+    //     {
+    //         imgPath: "https://bit.ly/dan-abramov",
+    //     },
+    //     {
+    //         imgPath: "https://bit.ly/kent-c-dodds",
+    //     },
+    //     {
+    //         imgPath: "https://bit.ly/ryan-florence",
+    //     },
+    //     {
+    //         imgPath: "https://bit.ly/prosper-baba",
+    //     },
+    //     {
+    //         imgPath: "https://bit.ly/code-beast",
+    //     },
+    //     {
+    //         imgPath: "https://bit.ly/sage-adebayo",
+    //     },
+    //     {
+    //         imgPath: "/profiles/profile1.jpg",
+    //     },
+    //     {
+    //         imgPath: "/profiles/profile2.jpg",
+    //     },
+    //     {
+    //         imgPath: "/profiles/profile3.jpg"
+    //     },
+    //     {
+    //         imgPath: "/profiles/profile5.jpg",
+    //     },
+    // ]
 
     
     // changes in form fields
@@ -100,23 +100,25 @@ const EditProfile = () => {
         const { name, value } = e.target;
         setFormData({
             ...formData, 
-            [name]: value 
+            [name]: value
         })
     }
     
-    // selecting an avatar
-    const [ previewAvatar, setPreviewAvatar ] = useState('');
+    // // selecting an avatar
+    // const [ previewAvatar, setPreviewAvatar ] = useState('');
 
-    const handleAvatarChange = (e) => {
-        const selectedAvatar = e.target
-        setFormData({...formData, avatarData: selectedAvatar })
-        setPreviewAvatar(selectedAvatar)
-    }
+    // const handleAvatarChange = (e) => {
+    //     const selectedAvatar = e.target
+    //     setFormData({...formData, avatarData: selectedAvatar })
+    //     setPreviewAvatar(selectedAvatar)
+    // }
     
     const saveChanges = async (e) => {
+      if(publicId) {
+        setFormData({...formData, avatar: publicId})
+      }
       e.preventDefault();
-      console.log(formData,1);
-      console.log(profileId,2)
+
         try {
             
             await updateProfile({
@@ -192,25 +194,7 @@ const EditProfile = () => {
             </FormControl>   
 
             <FormControl  mb={7}>
-                <FormLabel>Choose an Avatar:</FormLabel>
-
-            <Wrap>
-                {avatarData.map(avatar => (
-                    <WrapItem >
-                    <Avatar 
-                        className='avatar'
-                        name='avatar'
-                        size='lg' 
-                        alt='avatarPic'
-                        src={avatar.imgPath} 
-                        onClick={() => handleAvatarChange(avatar.imgPath)}
-                        />
-                    </WrapItem>
-
-                ))}
-                </Wrap>
-            </FormControl>
-            <Flex> 
+                <FormLabel>Add an Avatar:</FormLabel>
                 <CloudinaryUploadWidget uwConfig={uwConfig} setPublicId={setPublicId} />
                 <div style={{ width: "800px" }}>
                     <AdvancedImage
@@ -219,10 +203,11 @@ const EditProfile = () => {
                     plugins={[responsive(), placeholder()]}
                     />
                 </div>
-            </Flex>
+
+            </FormControl>
 
             <Stack direction='row' spacing={4} mt={7}>
-              <Button bg={'neonBlue'} variant='solid' type='submit'>
+              <Button bg={'neonBlue'} variant='solid' type='submit' onClick={saveChanges}>
                 Save Changes
               </Button>
 
@@ -247,3 +232,20 @@ const EditProfile = () => {
 }
 
 export default EditProfile
+
+// Old avatar addition
+// <Wrap>
+// {avatarData.map(avatar => (
+//     <WrapItem >
+//     <Avatar 
+//         className='avatar'
+//         name='avatar'
+//         size='lg' 
+//         alt='avatarPic'
+//         src={avatar.imgPath} 
+//         onClick={() => handleAvatarChange(avatar.imgPath)}
+//         />
+//     </WrapItem>
+
+// ))}
+// </Wrap>

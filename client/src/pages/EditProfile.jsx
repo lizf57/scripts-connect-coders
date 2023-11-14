@@ -1,6 +1,6 @@
 import React, { useState} from 'react'
 import { Link, FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem, Stack, Button } from '@chakra-ui/react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import '../style.css'
 import UploadWidget from '../components/UploadWidget/UploadWidget';
@@ -81,7 +81,7 @@ const EditProfile = () => {
 
     }
 
-    // const history = useHistory();
+    const history = useHistory();
 
   return (
     <>
@@ -167,9 +167,7 @@ const EditProfile = () => {
               </Button>
 
               <Link href={`/profiles/${profileId}`}>
-              <Button bg={'lightPurple'} variant='solid' type='button' 
-            //   onClick={() => history.push(`/profiles/${profileId}`)}
-              >
+              <Button bg={'lightPurple'} variant='solid' type='button' onClick={() => history.push(`/profiles/${profileId}`)}>
                 Cancel
               </Button>
               </Link>

@@ -13,18 +13,23 @@ import {
 import { useState } from "react"
 import { useMutation } from "@apollo/client"
 import { ADD_POST } from '../../utils/mutations'
+import { QUERY_POSTS } from '../../utils/queries'
 import Auth from "../../utils/auth"
 
 const charLimit = 255
 let charMessage = ""
+
 const profileId = localStorage.getItem('profile_id');
 
 const CreatePost = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const [postText,setPostText] = useState('')
+    const [post,setPostText] = useState('')
     const [remainingChar, setRemainingChar] = useState(charLimit)
 
-    const [addPost, { error }] = useMutation(ADD_POST)
+    const [addPost, { error }] = useMutation(ADD_POST, {
+
+      refetchQueries: [QUERY_POSTS, 'allPosts']
+    })
 
     const handleTextChange = (e) => {
       const inputEntry = e.target.value
@@ -46,7 +51,7 @@ const CreatePost = () => {
 
       try {
         const data = await addPost({
-          variables: { profileId, postText },
+          variables: { profileId, post },
         });
   
         setPostText('');
@@ -81,7 +86,7 @@ const CreatePost = () => {
           backdropFilter='auto'
           backdropBlur='1px'
           />
-        <ModalContent background={useColorModeValue("white","lightPurple")}>
+        <ModalContent background={useColorModeValue("white","darkBlue")}>
           <ModalHeader>Create Post</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={4}>
@@ -90,7 +95,7 @@ const CreatePost = () => {
             <Textarea 
               placeholder="Enter what you want"
               onChange={handleTextChange}
-              value={postText}              
+              value={post}              
               />
             
             <Text fontSize={"xs"} textAlign={"right"} fontWeight={"bold"}>

@@ -13,7 +13,7 @@ const resolvers = {
     },
 
     posts: async () => {
-      return Post.find().populate('profile')
+      return Post.find().populate('profile').sort({createdAt: -1})
     }
 
 
@@ -56,11 +56,11 @@ const resolvers = {
     // Post Mutations
     addPost: async (parent, { profileId , post }, context) => {
       if (context.user) {
-
+        const newPost = await Post.create({ body: post, profile: context.user._id })
         return Profile.findOneAndUpdate(
           { _id: profileId },
           {
-            $addToSet: { posts: post  },
+            $addToSet: { posts: newPost._id  },
           },
           {
             new: true,

@@ -46,8 +46,6 @@ export const ADD_POST = gql`
   mutation addPost($profileId: ID!, $post: String!) {
     addPost(profileId: $profileId, post: $post) {
       _id
-      username
-      post
     }
   }
 `;

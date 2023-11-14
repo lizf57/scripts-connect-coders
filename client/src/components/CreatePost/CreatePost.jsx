@@ -56,6 +56,7 @@ const CreatePost = () => {
         });
   
         setPostText('');
+        onClose()
       } catch (err) {
         console.error(err);
       }

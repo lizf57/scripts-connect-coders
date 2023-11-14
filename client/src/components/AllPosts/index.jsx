@@ -37,7 +37,9 @@ const AllPosts = ({ posts, profiles }) => {
                                             <Link to={`/profiles/${profileId}`}>
                                                 <Heading className='nameLink' size='sm'>{name}</Heading>
                                             </Link>
-                                        <Text>{username}</Text>
+                                            <Link to={`/profiles/${profileId}`}>
+                                                <Text className='nameLink'>{username}</Text>
+                                            </Link>
                                         <Text fontSize={'10px'}>{createdAt}</Text>
                                         </Box>
                                     </Flex>

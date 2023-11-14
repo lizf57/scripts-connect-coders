@@ -8,9 +8,9 @@ const postSchema = new Schema({
         minlength: 1,
         maxlength: 255
     },
-    username: {
-        type: String,
-        required: true
+    profile: {
+        type: Schema.Types.ObjectId,
+        ref: 'Profile'
     },
     createdAt: {
         type: Date,

@@ -9,11 +9,11 @@ const resolvers = {
     },
 
     profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
+      return Profile.findOne({ _id: profileId }).populate('posts')
     },
 
     posts: async () => {
-      return Post.find()
+      return Post.find().populate('profile')
     }
 
 

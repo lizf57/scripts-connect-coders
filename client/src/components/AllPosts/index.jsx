@@ -13,20 +13,30 @@ const AllPosts = ({ posts, profiles }) => {
         <>
             <Container maxW={'700px'} mb={40}>
 
-                {posts && posts.map((post) => (
-                    <div key={post._id}>
+                {posts && posts.map(({
+                    createdAt, 
+                    body, 
+                    _id,
+                    profile: {
+                        username,
+                        avatar,
+                        name,
+                        _id: profileId
+                    }
+                }) => (
+                    <div key={_id}>
 
                         <Flex justify={'center'}>
                             <Card maxW='md' mb={12}>
                                 <CardHeader>
                                 <Flex spacing='4'>
                                     <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                                        <Avatar name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
+                                        <Avatar name='Segun Adebayo' src={avatar} />
 
                                         <Box>
-                                        <Heading size='sm'>Segun Adebayo</Heading>
-                                        <Text>{post.username}</Text>
-                                        <Text fontSize={'10px'}>{post.createdAt}</Text>
+                                        <Heading size='sm'>{name}</Heading>
+                                        <Text>{username}</Text>
+                                        <Text fontSize={'10px'}>{createdAt}</Text>
                                         </Box>
                                     </Flex>
                                     <IconButton
@@ -39,7 +49,7 @@ const AllPosts = ({ posts, profiles }) => {
                                 </CardHeader>
                                 <CardBody>
                                     <Text>
-                                    {post.body}
+                                    {body}
                                     </Text>
                                 </CardBody>
                                 <CardFooter

@@ -16,7 +16,7 @@ db.once('open', async () => {
     for(const post of postSeeds) {
       const randomIndex = Math.floor(Math.random()*profiles.length)
       const profile = profiles[randomIndex]
-      const newPost = await Post.create({...post, username:profile.username})
+      const newPost = await Post.create({...post, profile:profile._id})
       await Profile.findByIdAndUpdate(profile._id, {$push:{posts:newPost._id}})
     }
     

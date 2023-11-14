@@ -10,13 +10,13 @@ type Profile {
   github: String
   stackOverflow: String
   linkedIn: String
-  posts: [String]
+  posts: [Post]
   avatar: String
 }
 
 type Post {
     _id: ID
-    username: String
+    profile: Profile
     body: String
     createdAt: String
   }

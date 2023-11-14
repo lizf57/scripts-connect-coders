@@ -3,6 +3,7 @@ import { Link, FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem
 import { useHistory } from 'react-router-dom'
 
 import '../style.css'
+import UploadWidget from '../components/UploadWidget/UploadWidget';
 
 const EditProfile = () => {
 
@@ -81,7 +82,7 @@ const EditProfile = () => {
     }
 
     const history = useHistory();
-    
+
   return (
     <>
     <Flex
@@ -138,6 +139,7 @@ const EditProfile = () => {
 
             <FormControl  mb={7}>
                 <FormLabel>Choose an Avatar:</FormLabel>
+
             <Wrap>
                 {avatarData.map(avatar => (
                     <WrapItem >
@@ -149,11 +151,15 @@ const EditProfile = () => {
                         src={avatar.imgPath} 
                         onClick={() => handleAvatarChange(avatar.imgPath)}
                         />
-                </WrapItem>
+                    </WrapItem>
 
                 ))}
                 </Wrap>
             </FormControl>
+                <Flex> 
+                    <Text>Or Choose your own! </Text>
+                    <UploadWidget></UploadWidget>
+                </Flex>
 
             <Stack direction='row' spacing={4} mt={7}>
               <Button bg={'neonBlue'} variant='solid' type='button' onClick={saveChanges}>

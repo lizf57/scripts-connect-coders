@@ -10,6 +10,7 @@ const Home = (props) => {
 
   const { loading, data } = useQuery(QUERY_POSTS)
   console.log(data)
+  
   const posts = data?.posts || []
   
 

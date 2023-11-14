@@ -1,13 +1,13 @@
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
 import auth from '../../utils/auth'
+import UserPosts from '../UserPosts'
 
 import { Avatar, VStack, Flex, Box, Text, Link } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faStackOverflow, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import { QUERY_SINGLE_PROFILE, QUERY_POSTS } from '../../utils/queries'
-import UserPost from '../UserPost/index'
 
 const UserInfo = () => {
 
@@ -22,7 +22,6 @@ const UserInfo = () => {
 
     const profile = data?.profile || {}
 
-    // const myPostIds = [...profile.posts]
 
 
     if (loading) {
@@ -53,24 +52,38 @@ const UserInfo = () => {
             </Flex>
 
             {/* Links display */}
+            
             <Flex justifyContent={'flex-end'} w={'full'}>
-                <Link href={`https://${profile.github}`} isExternal>
-                    <Box mx={3}>
-                    <FontAwesomeIcon icon={faGithub} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
-                    </Box>
-                </Link>
+                    {profile.github ? (
+                        <Link href={`https://${profile.github}`} isExternal>
+                            <Box mx={3}>
+                            <FontAwesomeIcon icon={faGithub} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
+                            </Box>
+                        </Link>
+                    ) : (
+                        ''
+                    )}
 
-                <Link href={`https://${profile.stackOverflow}`} isExternal>
-                    <Box mx={3}> 
-                    <FontAwesomeIcon icon={faStackOverflow} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
-                    </Box>
-                </Link>
+                    {profile.stackOverflow ? (
+                        <Link href={`https://${profile.stackOverflow}`} isExternal>
+                            <Box mx={3}>
+                            <FontAwesomeIcon icon={faStackOverflow} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
+                            </Box>
+                        </Link>
+                    ) : (
+                        ''
+                    )}
 
-                <Link href={`https://${profile.linkedIn}`} isExternal>
-                    <Box mx={3}> 
-                    <FontAwesomeIcon icon={faLinkedin} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
-                    </Box>
-                </Link>
+                    {profile.linkedIn ? (
+                        <Link href={`https://${profile.linkedIn}`} isExternal>
+                            <Box mx={3}>
+                            <FontAwesomeIcon icon={faLinkedin} style={{color: '#cb6ce6'}} cursor={'pointer'} size='2xl' />
+                            </Box>
+                        </Link>
+                    ) : (
+                        ''
+                    )}
+
             </Flex>
 
             <Flex w={'full'} mt={7}>
@@ -86,13 +99,11 @@ const UserInfo = () => {
 
                 
 
-                <UserPost>
-
-                    posts = {profile.posts}
                 
-                </UserPost>
             </Flex>
-
+            <UserPosts userPosts={profile.posts} userProfile={profile}>
+                    
+            </UserPosts>
 
 
        </VStack>

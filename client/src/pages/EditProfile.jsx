@@ -126,6 +126,8 @@ const EditProfile = () => {
                 }
             })
 
+            window.location.replace(`/profiles/${profileId}`)
+
         } catch (error) {
             console.log("Changes not saved", error)
         }

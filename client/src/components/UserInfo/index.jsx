@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
+import auth from '../../utils/auth'
 
 import { Avatar, VStack, Flex, Box, Text, Link } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,6 +12,9 @@ import UserPost from '../UserPost/index'
 const UserInfo = () => {
 
     const { profileId } = useParams()
+
+    const savedProfile = auth.getProfile()
+    const loggedInUserId = savedProfile?.data?._id
 
     const { loading, data } = useQuery(QUERY_SINGLE_PROFILE, {
         variables: { profileId: profileId }
@@ -34,7 +38,7 @@ const UserInfo = () => {
             <Flex justifyContent={'space-between'} w={'full'}>
                 <Box>
                     <Text color={'neonBlue'} fontWeight={'bold'} fontSize={'30px'}>{profile.name}</Text>
-                    <Link color={'lightPurple'} fontSize={'sm'} href='/editProfile'>Edit Profile</Link>
+                    { profileId === loggedInUserId && <Link color={'lightPurple'} fontSize={'sm'} href='/editProfile'>Edit Profile</Link> }
                     <Text fontSize={'md'}>{profile.username}</Text>
                     <Text fontSize={'md'} mt={3}>{profile.biography}</Text>
                 </Box>

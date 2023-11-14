@@ -31,6 +31,10 @@ Scripts is a social media platform tailored to the needs of software developers 
 [![Typewriter Effect](https://img.shields.io/badge/Typewriter%20Effect-magenta)](https://www.npmjs.com/package/typewriter-effect)
 [![Font Awesome](https://img.shields.io/badge/Font%20Awesome-lightblue)](https://fontawesome.com/)
 [![Chakra UI](https://img.shields.io/badge/Chakra%20UI-teal)](https://chakra-ui.com/)
+Cloudinary
+GraphQL
+Apollo
+
 
 
 ## [Contributions](#table-of-contents)

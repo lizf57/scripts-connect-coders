@@ -3,11 +3,12 @@ import { Link, FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem
 import { useMutation } from '@apollo/client';
 
 import '../style.css'
+import UploadWidget from '../components/UploadWidget/UploadWidget';
 
 const EditProfile = () => {
 
     const profileId = localStorage.getItem('profile_id')
-    
+
   return (
     <>
     <Flex
@@ -64,39 +65,43 @@ const EditProfile = () => {
 
             <FormControl  mb={7}>
                 <FormLabel>Choose an Avatar:</FormLabel>
-            <Wrap>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar1' size='lg' alt={'avatar1'} src='https://bit.ly/dan-abramov' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar2' size='lg' alt={'avatar2'}  src='https://bit.ly/kent-c-dodds' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar3' size='lg' alt={'avatar3'}  src='https://bit.ly/ryan-florence' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar4' size='lg' alt={'avatar4'}  src='https://bit.ly/prosper-baba' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar5' size='lg' alt={'avatar5'}  src='https://bit.ly/code-beast' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar6' size='lg' alt={'avatar6'}  src='https://bit.ly/sage-adebayo' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar7' size='lg' alt={'avatar7'}  src='/profiles/profile1.jpg' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar8' size='lg' alt={'avatar8'}  src='/profiles/profile2.jpg' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar9' size='lg' alt={'avatar9'}  src='/profiles/profile3.jpg' />
-                </WrapItem>
-                <WrapItem>
-                    <Avatar className='avatar' name='avatar10' size='lg' alt={'avatar10'}  src='/profiles/profile5.jpg' />
+                <Wrap>
+                    <WrapItem>
+                        <Avatar className='avatar' name='avatar1' size='lg' alt={'avatar1'} src='https://bit.ly/dan-abramov' />
+                    </WrapItem>
+                    <WrapItem>
+                        <Avatar className='avatar' name='avatar2' size='lg' alt={'avatar2'}  src='https://bit.ly/kent-c-dodds' />
+                    </WrapItem>
+                    <WrapItem>
+                        <Avatar className='avatar' name='avatar3' size='lg' alt={'avatar3'}  src='https://bit.ly/ryan-florence' />
+                    </WrapItem>
+                    <WrapItem>
+                        <Avatar className='avatar' name='avatar4' size='lg' alt={'avatar4'}  src='https://bit.ly/prosper-baba' />
+                    </WrapItem>
+                    <WrapItem>
+                        <Avatar className='avatar' name='avatar5' size='lg' alt={'avatar5'}  src='https://bit.ly/code-beast' />
+                    </WrapItem>
+                    <WrapItem>
+                        <Avatar className='avatar' name='avatar6' size='lg' alt={'avatar6'}  src='https://bit.ly/sage-adebayo' />
+                    </WrapItem>
+                    <WrapItem>
+                        <Avatar className='avatar' name='avatar7' size='lg' alt={'avatar7'}  src='/profiles/profile1.jpg' />
+                    </WrapItem>
+                    <WrapItem>
+                        <Avatar className='avatar' name='avatar8' size='lg' alt={'avatar8'}  src='/profiles/profile2.jpg' />
+                    </WrapItem>
+                    <WrapItem>
+                        <Avatar className='avatar' name='avatar9' size='lg' alt={'avatar9'}  src='/profiles/profile3.jpg' />
+                    </WrapItem>
+                    <WrapItem>
+                        <Avatar className='avatar' name='avatar10' size='lg' alt={'avatar10'}  src='/profiles/profile5.jpg' />
                 </WrapItem>
                 </Wrap>
             </FormControl>
+                <Flex> 
+                    <Text>Or Choose your own! </Text>
+                    <UploadWidget></UploadWidget>
+                </Flex>
 
             
             <Stack direction='row' spacing={4} mt={7}>

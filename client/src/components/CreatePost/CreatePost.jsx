@@ -13,7 +13,7 @@ import {
 import { useState } from "react"
 import { useMutation } from "@apollo/client"
 import { ADD_POST } from '../../utils/mutations'
-import { QUERY_POSTS } from '../../utils/queries'
+import { QUERY_POSTS, QUERY_SINGLE_PROFILE } from '../../utils/queries'
 import Auth from "../../utils/auth"
 
 const charLimit = 255
@@ -28,7 +28,8 @@ const CreatePost = () => {
 
     const [addPost, { error }] = useMutation(ADD_POST, {
 
-      refetchQueries: [QUERY_POSTS, 'allPosts']
+      refetchQueries: [QUERY_POSTS, 'allPosts'],
+      refetchQueries: [QUERY_SINGLE_PROFILE, 'profile']
     })
 
     const handleTextChange = (e) => {

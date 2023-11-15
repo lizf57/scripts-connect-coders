@@ -26,11 +26,11 @@ const SinglePost = ({
 
 	const [likedData, setLikedData] = useState(likedBy)
 	const liked = likedData?.includes(loggedInProfileId)
-	console.log(liked)
+	console.log(likedBy)
 
 	const [dislikedData, setDislikedData] = useState(dislikedBy)
 	const disliked = dislikedData?.includes(loggedInProfileId)
-	console.log(disliked)
+	
 
 
 	const [ toggleLike ] = useMutation(TOGGLE_LIKE, {
@@ -109,6 +109,10 @@ const SinglePost = ({
             Share
             </Button> */}
 			</CardFooter>
+			<Flex justify={'center'}>
+				<Text fontSize={'xs'} mx={7} color={'neonBlue'}>{likedBy.length} Likes</Text>
+				<Text fontSize={'xs'} mx={7} color={'neonBlue'}>{dislikedBy.length} Dislikes</Text>
+			</Flex>
 		</Card>
 
 

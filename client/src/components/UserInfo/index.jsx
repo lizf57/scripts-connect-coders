@@ -9,7 +9,10 @@ import { faGithub, faStackOverflow, faLinkedin } from '@fortawesome/free-brands-
 
 import { QUERY_SINGLE_PROFILE, QUERY_POSTS } from '../../utils/queries'
 
-const UserInfo = () => {
+const UserInfo = ({ userPosts, userProfile }) => {
+    // if (!userPosts.length) {
+    //     return <h3>No Posts Yet!</h3>
+    // }
 
     const { profileId } = useParams()
 
@@ -102,6 +105,15 @@ const UserInfo = () => {
 
                 
             </Flex>
+
+            {/* {userPosts && userPosts.map((userPost) => (
+
+            <Flex justify={'center'} key={post._id}>
+                <SinglePost {...userPost} />
+            </Flex>
+
+            ))} */}
+
             <UserPosts userPosts={profile.posts} userProfile={profile}>
                     
             </UserPosts>

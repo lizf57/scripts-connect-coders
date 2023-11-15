@@ -28,7 +28,7 @@ const CreatePost = () => {
 
     const [addPost, { error }] = useMutation(ADD_POST, {
 
-      refetchQueries: [QUERY_POSTS, 'allPosts', QUERY_SINGLE_PROFILE, 'profile'],
+      refetchQueries: [{query: QUERY_POSTS}, {query: QUERY_SINGLE_PROFILE}],
     })
 
     const handleTextChange = (e) => {

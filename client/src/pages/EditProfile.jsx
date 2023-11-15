@@ -1,13 +1,14 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, FormControl, FormLabel, Input, Flex, Text, Avatar, Wrap, WrapItem, Stack, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import '../style.css'
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { UPDATE_PROFILE, REMOVE_PROFILE } from '../utils/mutations';
 import auth from '../utils/auth'
 import CloudinaryUploadWidget from "../components/UploadWidget/UploadWidget";
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage, responsive, placeholder } from "@cloudinary/react";
+import { QUERY_SINGLE_PROFILE } from '../utils/queries';
 
 const EditProfile = () => {
 
@@ -15,8 +16,11 @@ const EditProfile = () => {
 
     const savedProfile = auth.getProfile()
     const loggedInUserId = savedProfile?.data?._id
-
+    const { loading, data, error}= useQuery(QUERY_SINGLE_PROFILE,{
+      variables: {profileId: loggedInUserId}
+    })
     // form fields
+    console.log(data)
     const [ formData, setFormData ] = useState({
         name: "",
         username: "",
@@ -27,7 +31,14 @@ const EditProfile = () => {
         stackOverflow: "",
         linkedIn: "",
         avatar: ""
-    });
+      });
+
+    useEffect(() => {
+      if (data?.profile) {
+        setFormData(data.profile)
+        console.log(data)
+      }
+    },[data])
 
     //avatar cloudinary setter
     const [publicId, setPublicId] = useState("");
@@ -59,7 +70,7 @@ const EditProfile = () => {
 
       const myImage = cld.image(publicId);
     
-    const [updateProfile, {loading, data, error}] = useMutation(UPDATE_PROFILE)
+    const [updateProfile,] = useMutation(UPDATE_PROFILE)
     
     // changes in form fields
     const handleInputChange = (e) => {
@@ -71,9 +82,7 @@ const EditProfile = () => {
     }
     
     const saveChanges = async (e) => {
-      if(publicId) {
-        await setFormData({...formData, avatar: publicId})
-      }
+
       e.preventDefault();
 
         try {
@@ -183,7 +192,12 @@ const EditProfile = () => {
             </FormControl>
 
             <Stack direction='row' spacing={4} mt={7}>
-              <Button bg={'neonBlue'} variant='solid' type='submit' onClick={saveChanges}>
+              <Button bg={'neonBlue'} variant='solid' type='submit' onClick={async () => {
+                  if(publicId) {
+                    await setFormData({...formData, avatar: publicId})
+                  }
+                  saveChanges()
+                }}>
                 Save Changes
               </Button>
 

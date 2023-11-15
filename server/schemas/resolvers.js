@@ -17,8 +17,7 @@ const resolvers = {
     },
 
     posts: async (parent, { skip=0 }) => {
-      return Post.find().populate('profile').skip(skip).limit(5)
-      // .sort({createdAt: -1})
+      return Post.find().populate('profile').sort({createdAt: -1}).skip(skip).limit(5)
     }
 
   },

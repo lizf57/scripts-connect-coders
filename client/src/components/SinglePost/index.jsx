@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom'
 import { Text, Flex, IconButton, Box, Avatar, Card, CardHeader, CardBody, CardFooter,  Heading, Button } from '@chakra-ui/react'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import { BiLike, BiChat, BiDislike } from 'react-icons/bi'
+import { TOGGLE_LIKE, TOGGLE_DISLIKE } from '../../utils/mutations'
+import { useMutation } from '@apollo/client'
+import auth from '../../utils/auth'
+import { useState } from 'react'
 
 const SinglePost = ({
 	createdAt, 
 	body, 
 	_id,
+	likedBy,
+	dislikedBy,
 	profile: {
 			username,
 			avatar,
@@ -15,6 +21,22 @@ const SinglePost = ({
 			_id: profileId
 	}
 }) => {
+
+	const loggedInProfileId = auth.getProfile()?.data?._id
+
+	const [likedData, setLikedData] = useState(likedBy)
+	const liked = likedData?.includes(loggedInProfileId)
+	console.log(liked)
+
+
+	const [ toggleLike ] = useMutation(TOGGLE_LIKE, {
+		variables: {
+			postId: _id,
+			profileId: loggedInProfileId
+		}
+	})
+	const [ toggleDislike ] = useMutation(TOGGLE_DISLIKE)
+
 	return (
 
 		<Card maxW='lg' mb={12}>
@@ -30,7 +52,7 @@ const SinglePost = ({
 							<Link to={`/profiles/${profileId}`}>
 								<Text className='nameLink'>{username}</Text>
 							</Link>
-							<Text fontSize={'10px'}>{createdAt}</Text>
+							<Text fontSize={'10px'}>{createdAt}  {_id} </Text>
 						</Box>
 					</Flex>
 					<IconButton
@@ -55,7 +77,11 @@ const SinglePost = ({
 					},
 				}}
 			>
-				<Button flex='1' variant='ghost' leftIcon={<BiLike />}>
+				<Button flex='1' variant={liked?'solid':'ghost'} bg={liked?'lightPurple':'ghost'} leftIcon={<BiLike />} onClick={ async () => {
+					const results = await	toggleLike() 
+					setLikedData(results.data.toggleLike.likedBy)
+
+				}}>
 					Like
 				</Button>
 				<Button flex='1' variant='ghost' leftIcon={<BiChat />}>

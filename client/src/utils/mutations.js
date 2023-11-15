@@ -56,3 +56,21 @@ mutation removeProfile($profileId: ID!) {
   }
 }
 `;
+
+export const TOGGLE_LIKE = gql`
+mutation ToggleLike($postId: ID!, $profileId: ID!) {
+  toggleLike(postId: $postId, profileId: $profileId) {
+    likedBy,
+    dislikedBy
+  }
+}
+`;
+
+export const TOGGLE_DISLIKE = gql`
+mutation ToggleDislike($postId: ID!, $profileId: ID!) {
+  toggleDislike(postId: $postId, profileId: $profileId) {
+    likedBy,
+    dislikedBy
+  }
+}
+`

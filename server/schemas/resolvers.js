@@ -12,6 +12,10 @@ const resolvers = {
       return Profile.findOne({ _id: profileId }).populate('posts')
     },
 
+    post: async (parent, { postId }) => {
+      return Post.findById(postId).populate('profile')
+    },
+
     posts: async (parent, { skip=0 }) => {
       return Post.find().populate('profile').skip(skip).limit(5)
       // .sort({createdAt: -1})

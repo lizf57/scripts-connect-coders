@@ -31,6 +31,8 @@ type Post {
     profile: Profile
     body: String
     createdAt: String
+    likedBy: [ID]
+    dislikedBy: [ID]
   }
 
   type Auth {
@@ -49,6 +51,9 @@ type Post {
     addProfile(name: String!, username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     updateProfile(profileId: ID!, profile: ProfileInput!): Profile
+    toggleLike(postId: ID!, profileId: ID!): Post
+    toggleDislike(postId: ID!, profileId: ID!): Post
+
   
     
     addPost(profileId: ID!, post: String!): Profile

@@ -1,7 +1,10 @@
-# Scripts: connecting coders
+# Scripts ![svg logo](/images/code.svg) connecting coders 
 
 ## Description
 Scripts is a social media platform tailored to the needs of software developers and coders. This platform facilitates connections among web developers by enabling users to craft and share posts, consequently fostering a network of followers and connections. The application is powered by the MERN stack and hosted on Heroku. 
+
+![Login page Screenshot](/images/homepage.png)
+
 
   ## Table of Contents
   * [Installation](#installation)

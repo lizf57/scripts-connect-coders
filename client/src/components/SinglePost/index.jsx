@@ -26,7 +26,7 @@ const SinglePost = ({
 
 	const [likedData, setLikedData] = useState(likedBy)
 	const liked = likedData?.includes(loggedInProfileId)
-	console.log(likedBy)
+	console.log('LIKED BY', likedBy)
 
 	const [dislikedData, setDislikedData] = useState(dislikedBy)
 	const disliked = dislikedData?.includes(loggedInProfileId)
@@ -45,6 +45,8 @@ const SinglePost = ({
 			profileId: loggedInProfileId
 		}
 	})
+
+	console.log(liked)
 
 	return (
 
@@ -110,8 +112,8 @@ const SinglePost = ({
             </Button> */}
 			</CardFooter>
 			<Flex justify={'center'}>
-				<Text fontSize={'xs'} mx={7} color={'neonBlue'}>{likedBy.length} Likes</Text>
-				<Text fontSize={'xs'} mx={7} color={'neonBlue'}>{dislikedBy.length} Dislikes</Text>
+				<Text fontSize={'xs'} mx={7} color={'neonBlue'}>{likedData? likedData.length : '0'} Likes</Text>
+				<Text fontSize={'xs'} mx={7} color={'neonBlue'}>{dislikedData? dislikedData.length : '0'} Dislikes</Text>
 			</Flex>
 		</Card>
 

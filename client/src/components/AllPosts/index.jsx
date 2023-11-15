@@ -1,7 +1,7 @@
 import SinglePost from '../SinglePost'
 import { Container, Flex } from '@chakra-ui/react'
 
-const AllPosts = ({ posts, profiles }) => {
+const AllPosts = ({ posts }) => {
 	if (!posts.length) {
 		return <h3>No Posts Yet!</h3>
 

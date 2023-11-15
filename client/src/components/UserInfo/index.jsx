@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
 import auth from '../../utils/auth'
+import SinglePost from '../SinglePost'
 import UserPosts from '../UserPosts'
 
 import { Avatar, VStack, Flex, Box, Text, Link } from '@chakra-ui/react'
@@ -9,10 +10,11 @@ import { faGithub, faStackOverflow, faLinkedin } from '@fortawesome/free-brands-
 
 import { QUERY_SINGLE_PROFILE, QUERY_POSTS } from '../../utils/queries'
 
-const UserInfo = ({ userPosts, userProfile }) => {
-    // if (!userPosts.length) {
-    //     return <h3>No Posts Yet!</h3>
-    // }
+const UserInfo = () => {
+    // if (!posts.length) {
+	// 	return <h3>No Posts Yet!</h3>
+
+	// }
 
     const { profileId } = useParams()
 
@@ -31,7 +33,6 @@ const UserInfo = ({ userPosts, userProfile }) => {
         return <div>Loading...</div>
     }
 
-    console.log(profile.posts)
     console.log(profile)
 
     return (
@@ -106,17 +107,17 @@ const UserInfo = ({ userPosts, userProfile }) => {
                 
             </Flex>
 
-            {/* {userPosts && userPosts.map((userPost) => (
+            {profile.posts && profile.posts.map((post) => (
 
             <Flex justify={'center'} key={post._id}>
-                <SinglePost {...userPost} />
+                <SinglePost profile={profile} {...post} />
             </Flex>
 
-            ))} */}
+            ))}
 
-            <UserPosts userPosts={profile.posts} userProfile={profile}>
+            {/* <UserPosts userPosts={profile.posts} userProfile={profile}>
                     
-            </UserPosts>
+            </UserPosts> */}
 
 
        </VStack>

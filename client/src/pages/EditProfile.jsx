@@ -35,6 +35,7 @@ const EditProfile = () => {
 
     useEffect(() => {
       if (data?.profile) {
+        // const { name, username, email, password, biography, github, stackOverflow, linkedIn, avatar } = data.profile
         setFormData(data.profile)
         console.log(data)
       }
@@ -94,7 +95,7 @@ const EditProfile = () => {
                 }
             })
 
-            window.location.replace(`/profiles/${profileId}`)
+            // window.location.replace(`/profiles/${profileId}`)
 
         } catch (error) {
             console.log("Changes not saved", error)

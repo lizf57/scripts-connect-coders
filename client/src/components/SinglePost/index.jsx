@@ -28,6 +28,10 @@ const SinglePost = ({
 	const liked = likedData?.includes(loggedInProfileId)
 	console.log(liked)
 
+	const [dislikedData, setDislikedData] = useState(dislikedBy)
+	const disliked = dislikedData?.includes(loggedInProfileId)
+	console.log(disliked)
+
 
 	const [ toggleLike ] = useMutation(TOGGLE_LIKE, {
 		variables: {
@@ -35,7 +39,12 @@ const SinglePost = ({
 			profileId: loggedInProfileId
 		}
 	})
-	const [ toggleDislike ] = useMutation(TOGGLE_DISLIKE)
+	const [ toggleDislike ] = useMutation(TOGGLE_DISLIKE, {
+		variables: {
+			postId: _id,
+			profileId: loggedInProfileId
+		}
+	})
 
 	return (
 
@@ -52,7 +61,7 @@ const SinglePost = ({
 							<Link to={`/profiles/${profileId}`}>
 								<Text className='nameLink'>{username}</Text>
 							</Link>
-							<Text fontSize={'10px'}>{createdAt}  {_id} </Text>
+							<Text fontSize={'10px'}>{createdAt} </Text>
 						</Box>
 					</Flex>
 					<IconButton
@@ -78,7 +87,7 @@ const SinglePost = ({
 				}}
 			>
 				<Button flex='1' variant={liked?'solid':'ghost'} bg={liked?'lightPurple':'ghost'} leftIcon={<BiLike />} onClick={ async () => {
-					const results = await	toggleLike() 
+					const results = await toggleLike() 
 					setLikedData(results.data.toggleLike.likedBy)
 
 				}}>
@@ -87,7 +96,11 @@ const SinglePost = ({
 				<Button flex='1' variant='ghost' leftIcon={<BiChat />}>
 					Comment
 				</Button>
-				<Button flex='1' variant='ghost' leftIcon={<BiDislike />}>
+				<Button flex='1' variant={disliked?'solid':'ghost'} bg={disliked?'lightPurple':'ghost'} leftIcon={<BiDislike />} onClick={ async () => {
+					const results = await toggleDislike() 
+					setDislikedData(results.data.toggleDislike.dislikedBy)
+
+				}}>
 					Dislike
 				</Button>
 

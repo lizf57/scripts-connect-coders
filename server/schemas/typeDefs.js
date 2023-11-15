@@ -15,6 +15,7 @@ type Profile {
 }
 
 input ProfileInput {
+  _id: ID
   name: String
   username: String
   email: String
@@ -23,12 +24,23 @@ input ProfileInput {
   github: String
   stackOverflow: String
   linkedIn: String
+  posts: [PostInput]
   avatar: String
+  
 }
 
 type Post {
     _id: ID
     profile: Profile
+    body: String
+    createdAt: String
+    likedBy: [ID]
+    dislikedBy: [ID]
+  }
+
+  input PostInput {
+    _id: ID
+    profile: ProfileInput
     body: String
     createdAt: String
     likedBy: [ID]

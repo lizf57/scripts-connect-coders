@@ -30,7 +30,7 @@ const EditProfile = () => {
         github: "",
         stackOverflow: "",
         linkedIn: "",
-        avatar: ""
+        avatar: "",
       });
 
     useEffect(() => {
@@ -84,7 +84,7 @@ const EditProfile = () => {
     
     const saveChanges = async (e) => {
 
-      e.preventDefault();
+      // e.preventDefault();
 
         try {
             
@@ -95,7 +95,7 @@ const EditProfile = () => {
                 }
             })
 
-            // window.location.replace(`/profiles/${profileId}`)
+            window.location.replace(`/profiles/${profileId}`)
 
         } catch (error) {
             console.log("Changes not saved", error)
@@ -171,12 +171,12 @@ const EditProfile = () => {
 
             <FormControl mb={7}>
                 <FormLabel>StackOverflow Account:</FormLabel>
-                <Input placeholder='StackOverflow URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='stackOverflow' type='text' value={formData.stackoverflow} onChange={handleInputChange}/>
+                <Input placeholder='StackOverflow URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='stackOverflow' type='text' value={formData.stackOverflow} onChange={handleInputChange}/>
             </FormControl>  
 
             <FormControl mb={7}>
                 <FormLabel>LinkedIn Account:</FormLabel>
-                <Input placeholder='LinkedIn URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='linkedIn' type='text' value={formData.linkedin} onChange={handleInputChange}/>
+                <Input placeholder='LinkedIn URL'  borderColor={'neonBlue'} focusBorderColor={'lightPurple'} name='linkedIn' type='text' value={formData.linkedIn} onChange={handleInputChange}/>
             </FormControl>   
 
             <FormControl  mb={7}>

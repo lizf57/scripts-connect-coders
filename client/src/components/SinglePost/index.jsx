@@ -22,6 +22,7 @@ const SinglePost = ({
 	}
 }) => {
 
+
 	const loggedInProfileId = auth.getProfile()?.data?._id
 
 	const [likedData, setLikedData] = useState(likedBy)
@@ -46,7 +47,7 @@ const SinglePost = ({
 		}
 	})
 
-	console.log(liked)
+	console.log(likedData)
 
 	return (
 

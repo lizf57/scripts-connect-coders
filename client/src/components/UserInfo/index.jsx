@@ -11,10 +11,7 @@ import { faGithub, faStackOverflow, faLinkedin } from '@fortawesome/free-brands-
 import { QUERY_SINGLE_PROFILE, QUERY_POSTS } from '../../utils/queries'
 
 const UserInfo = () => {
-    // if (!posts.length) {
-	// 	return <h3>No Posts Yet!</h3>
-
-	// }
+   
 
     const { profileId } = useParams()
 
@@ -26,8 +23,6 @@ const UserInfo = () => {
     })
 
     const profile = data?.profile || {}
-
-
 
     if (loading) {
         return <div>Loading...</div>

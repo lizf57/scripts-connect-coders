@@ -39,6 +39,8 @@ export const QUERY_POSTS = gql`
       _id
       body
       createdAt
+      likedBy
+      dislikedBy
       profile {
         _id
         username
@@ -55,6 +57,8 @@ export const QUERY_SINGLE_POST = gql`
       _id
       body
       createdAt
+      likedBy
+      dislikedBy
        profile {
         _id
         username

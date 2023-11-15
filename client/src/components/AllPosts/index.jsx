@@ -12,13 +12,11 @@ const AllPosts = ({ posts, profiles }) => {
 			<Container maxW={'700px'} mb={40}>
 
 				{posts && posts.map((post) => (
-					<div key={_id}>
 
-						<Flex justify={'center'}>
-							<SinglePost {...post} />
-						</Flex>
+					<Flex justify={'center'} key={post._id}>
+						<SinglePost {...post} />
+					</Flex>
 
-					</div>
 				))}
 
 			</Container>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Text, Flex, IconButton, Box, Avatar, Card, CardHeader, CardBody, CardFooter,  Heading, Button } from '@chakra-ui/react'
+import { Text, Flex, IconButton, Box, Avatar, Card, CardHeader, CardBody, CardFooter, Heading, Button } from '@chakra-ui/react'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import { BiLike, BiChat, BiDislike } from 'react-icons/bi'
 import { TOGGLE_LIKE, TOGGLE_DISLIKE } from '../../utils/mutations'
@@ -8,17 +8,18 @@ import { useMutation } from '@apollo/client'
 import auth from '../../utils/auth'
 import { useState } from 'react'
 
+
 const SinglePost = ({
-	createdAt, 
-	body, 
+	createdAt,
+	body,
 	_id,
 	likedBy,
 	dislikedBy,
 	profile: {
-			username,
-			avatar,
-			name,
-			_id: profileId
+		username,
+		avatar,
+		name,
+		_id: profileId
 	}
 }) => {
 
@@ -31,16 +32,16 @@ const SinglePost = ({
 
 	const [dislikedData, setDislikedData] = useState(dislikedBy)
 	const disliked = dislikedData?.includes(loggedInProfileId)
-	
 
 
-	const [ toggleLike ] = useMutation(TOGGLE_LIKE, {
+
+	const [toggleLike] = useMutation(TOGGLE_LIKE, {
 		variables: {
 			postId: _id,
 			profileId: loggedInProfileId
 		}
 	})
-	const [ toggleDislike ] = useMutation(TOGGLE_DISLIKE, {
+	const [toggleDislike] = useMutation(TOGGLE_DISLIKE, {
 		variables: {
 			postId: _id,
 			profileId: loggedInProfileId
@@ -49,13 +50,14 @@ const SinglePost = ({
 
 	console.log(likedData)
 
+
 	return (
 
 		<Card maxW='lg' mb={12}>
 			<CardHeader>
 				<Flex spacing='4'>
 					<Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-						<Avatar name={`Avatar of ${name}`} src={avatar} />
+						<Avatar name={`Avatar of ${name}`} src={`https://res.cloudinary.com/dkcjh5c0w/image/upload/v1699988362/${avatar}.webp`} />
 
 						<Box>
 							<Link to={`/profiles/${profileId}`}>
@@ -89,8 +91,8 @@ const SinglePost = ({
 					},
 				}}
 			>
-				<Button flex='1' variant={liked?'solid':'ghost'} bg={liked?'lightPurple':'ghost'} leftIcon={<BiLike />} onClick={ async () => {
-					const results = await toggleLike() 
+				<Button flex='1' variant={liked ? 'solid' : 'ghost'} bg={liked ? 'lightPurple' : 'ghost'} leftIcon={<BiLike />} onClick={async () => {
+					const results = await toggleLike()
 					setLikedData(results.data.toggleLike.likedBy)
 
 				}}>
@@ -99,8 +101,8 @@ const SinglePost = ({
 				<Button flex='1' variant='ghost' leftIcon={<BiChat />}>
 					Comment
 				</Button>
-				<Button flex='1' variant={disliked?'solid':'ghost'} bg={disliked?'lightPurple':'ghost'} leftIcon={<BiDislike />} onClick={ async () => {
-					const results = await toggleDislike() 
+				<Button flex='1' variant={disliked ? 'solid' : 'ghost'} bg={disliked ? 'lightPurple' : 'ghost'} leftIcon={<BiDislike />} onClick={async () => {
+					const results = await toggleDislike()
 					setDislikedData(results.data.toggleDislike.dislikedBy)
 
 				}}>
@@ -113,12 +115,10 @@ const SinglePost = ({
             </Button> */}
 			</CardFooter>
 			<Flex justify={'center'}>
-				<Text fontSize={'xs'} mx={7} color={'neonBlue'}>{likedData? likedData.length : '0'} Likes</Text>
-				<Text fontSize={'xs'} mx={7} color={'neonBlue'}>{dislikedData? dislikedData.length : '0'} Dislikes</Text>
+				<Text fontSize={'xs'} mx={7} color={'neonBlue'}>{likedData ? likedData.length : '0'} Likes</Text>
+				<Text fontSize={'xs'} mx={7} color={'neonBlue'}>{dislikedData ? dislikedData.length : '0'} Dislikes</Text>
 			</Flex>
 		</Card>
-
-
 
 	)
 }

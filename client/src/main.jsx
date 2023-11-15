@@ -4,17 +4,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from './App.jsx';
 import Home from './pages/Home.jsx';
 import User from './pages/User.jsx'
-import Post from './pages/Post.jsx'
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ErrorPage from './pages/Error';
 import About from './pages/About.jsx'
 import Developers from './pages/Developers.jsx'
 import Careers from './pages/Careers.jsx'
-import EditProfile from './pages/editProfile.jsx';
+import EditProfile from './pages/EditProfile.jsx';
 import PrivateRoute from './components/PrivateRoute/index.jsx';
 import CodeFriends from './pages/CodeFriends.jsx'
-import SinglePost from './pages/SinglePost.jsx';
+import UserPost from './pages/UserPost.jsx';
 
 
 const router = createBrowserRouter([
@@ -43,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: '/:profileId/post/:postId',
         element: <PrivateRoute>
-          <SinglePost />
+          <UserPost />
         </PrivateRoute>
       },
       {

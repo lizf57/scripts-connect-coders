@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
 import auth from '../../utils/auth'
 import SinglePost from '../SinglePost'
-import UserPosts from '../UserPosts'
 
 import { Avatar, VStack, Flex, Box, Text, Link } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

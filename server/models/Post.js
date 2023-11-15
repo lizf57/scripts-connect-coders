@@ -19,6 +19,14 @@ const postSchema = new Schema({
             if (date) return date.toISOString().split("T")[0]
         }
     },
+    likedBy: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Profile'
+    }],
+    dislikedBy: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Profile'
+    }],
     comments: [commentSchema]
 }, {
     toJSON: {

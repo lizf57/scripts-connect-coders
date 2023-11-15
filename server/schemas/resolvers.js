@@ -86,6 +86,54 @@ const resolvers = {
         throw AuthenticationError
     },
 
+    toggleLike: async (parent, { postId, profileId }) => {
+      const post = await Post.findById(postId)
+
+      const likeOperator = post.likedBy.includes(profileId)
+        ? "$pull" 
+        : "$push"
+
+      const updatePostData = {
+        [likeOperator]: {likedBy: profileId},
+      }
+
+      const hasDisliked = post.dislikedBy.includes(profileId)
+
+      if (hasDisliked) {
+        updatePostData.$pull = {dislikedBy: profileId}
+      }
+         
+      return(
+        await Post.findByIdAndUpdate(postId, updatePostData, {
+          new: true
+        })
+      )
+
+    },
+    toggleDislike: async (parent, { postId, profileId }) => {
+      const post = await Post.findById(postId)
+
+      const dislikeOperator = post.dislikedBy.includes(profileId)
+        ? "$pull" 
+        : "$push"
+
+      const updatePostData = {
+        [dislikeOperator]: {dislikedBy: profileId},
+      }
+
+      const hasLiked = post.likedBy.includes(profileId)
+
+      if (hasLiked) {
+        updatePostData.$pull = {likedBy: profileId}
+      }
+         
+      return(
+        await Post.findByIdAndUpdate(postId, updatePostData, {
+          new: true
+        })
+      )
+  },
+
     removePost: async (parent, { profileId, postId }) => {
       return Profile.findOneAndUpdate(
         { _id: profileId },

@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
 import auth from '../../utils/auth'
 import SinglePost from '../SinglePost'
-
 import { Avatar, VStack, Flex, Box, Text, Link } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faStackOverflow, faLinkedin } from '@fortawesome/free-brands-svg-icons'
@@ -10,7 +9,6 @@ import { faGithub, faStackOverflow, faLinkedin } from '@fortawesome/free-brands-
 import { QUERY_SINGLE_PROFILE } from '../../utils/queries'
 
 const UserInfo = () => {
-
 
 	const { profileId } = useParams()
 
@@ -31,8 +29,6 @@ const UserInfo = () => {
 
 	return (
 		<VStack>
-			{/* Username, name, bio, and picture display */}
-			{/* TODO: Add followers - stretch goal */}
 			<Flex justifyContent={'space-between'} w={'full'}>
 				<Box>
 					<Text color={'neonBlue'} fontWeight={'bold'} fontSize={'30px'}>{profile.name}</Text>
@@ -47,7 +43,6 @@ const UserInfo = () => {
 						size={'xl'}
 					/>
 				</Box>
-
 			</Flex>
 
 			{/* Links display */}
@@ -94,19 +89,11 @@ const UserInfo = () => {
 				</Flex>
 			</Flex>
 
-			<Flex>
-
-
-
-
-			</Flex>
-
 			{profile.posts && profile.posts.map((post) => (
 
 				<Flex justify={'center'} key={post._id}>
 					<SinglePost profile={profile} {...post} />
 				</Flex>
-
 			))}
 
 		</VStack>

@@ -15,64 +15,63 @@ import PrivateRoute from './components/PrivateRoute/index.jsx';
 import CodeFriends from './pages/CodeFriends.jsx'
 import UserPost from './pages/UserPost.jsx';
 
-
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        index: true,
-        element: <PrivateRoute>
-            <Home />
-          </PrivateRoute>
-      }, {
-        path: '/login',
-        element: <Login />
-      }, {
-        path: '/signup',
-        element: <Signup />
-      }, {
-        path: '/profiles/:profileId',
-        element: <PrivateRoute>
-          <User />
-        </PrivateRoute>
-      },
-      {
-        path: '/:profileId/post/:postId',
-        element: <PrivateRoute>
-          <UserPost />
-        </PrivateRoute>
-      },
-      {
-        path: '/editProfile',
-        element: <PrivateRoute>
-            <EditProfile />
-        </PrivateRoute>
-      },
-      {
-        path: '/about',
-        element: <About />
-      },
-      {
-        path: '/developers',
-        element: <Developers />
-      },
-      {
-        path: '/careers',
-        element: <Careers />
-      },
-      {
-        path: '/codefriends',
-        element: <PrivateRoute>
-          <CodeFriends />
-        </PrivateRoute>
-      }
-    ]
-  },
+	{
+		path: "/",
+		element: <App />,
+		errorElement: <ErrorPage />,
+		children: [
+			{
+				index: true,
+				element: <PrivateRoute>
+					<Home />
+				</PrivateRoute>
+			}, {
+				path: '/login',
+				element: <Login />
+			}, {
+				path: '/signup',
+				element: <Signup />
+			}, {
+				path: '/profiles/:profileId',
+				element: <PrivateRoute>
+					<User />
+				</PrivateRoute>
+			},
+			{
+				path: '/:profileId/post/:postId',
+				element: <PrivateRoute>
+					<UserPost />
+				</PrivateRoute>
+			},
+			{
+				path: '/editProfile',
+				element: <PrivateRoute>
+					<EditProfile />
+				</PrivateRoute>
+			},
+			{
+				path: '/about',
+				element: <About />
+			},
+			{
+				path: '/developers',
+				element: <Developers />
+			},
+			{
+				path: '/careers',
+				element: <Careers />
+			},
+			{
+				path: '/codefriends',
+				element: <PrivateRoute>
+					<CodeFriends />
+				</PrivateRoute>
+			}
+		]
+	},
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+	<RouterProvider router={router} />
 )

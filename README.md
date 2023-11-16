@@ -42,7 +42,7 @@ Scripts is a social media platform tailored to the needs of software developers 
 
 
 ## [Contributions](#table-of-contents)
-There were no other contributors to this application. This application was initiated as a project from the University of Wisconsin Coding Bootcamp. 
+There were no other contributors to this application. This application was initiated as a project from the University of Wisconsin Coding Bootcamp. Some back-end starter code was provided by the University. 
 
 ## [Questions](#Table-of-Contents)
 If you have any questions contact developers here:

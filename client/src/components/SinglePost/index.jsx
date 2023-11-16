@@ -8,7 +8,6 @@ import { useMutation } from '@apollo/client'
 import auth from '../../utils/auth'
 import { useState } from 'react'
 
-
 const SinglePost = ({
 	createdAt,
 	body,
@@ -23,7 +22,6 @@ const SinglePost = ({
 	}
 }) => {
 
-
 	const loggedInProfileId = auth.getProfile()?.data?._id
 
 	const [likedData, setLikedData] = useState(likedBy)
@@ -32,8 +30,6 @@ const SinglePost = ({
 
 	const [dislikedData, setDislikedData] = useState(dislikedBy)
 	const disliked = dislikedData?.includes(loggedInProfileId)
-
-
 
 	const [toggleLike] = useMutation(TOGGLE_LIKE, {
 		variables: {
@@ -47,9 +43,6 @@ const SinglePost = ({
 			profileId: loggedInProfileId
 		}
 	})
-
-	console.log(likedData)
-
 
 	return (
 
